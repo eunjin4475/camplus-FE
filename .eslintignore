@@ -1,0 +1,6 @@
+/node_modules
+build
+
+reportWebVitals.js
+index.js
+.eslintrc.js
