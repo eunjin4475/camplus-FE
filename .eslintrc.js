@@ -15,12 +15,20 @@ module.exports = {
           "namedComponents": "arrow-function",
           "unnamedComponents": "arrow-function"
       }
-  ],
+    ],
     'react/jsx-filename-extension': [
       'error',
       {
         extensions: ['.js', '.jsx'],
       },
     ],
+    "jsx-a11y/label-has-associated-control": [ 2,  // label 문제
+      {
+        "labelComponents": ["label"],
+        "labelAttributes": ["htmlFor"],
+        "controlComponents": ["input"]
+      }
+    ],
+    "react/jsx-props-no-spreading": 'off', // ... 사용가능
   },
 };
