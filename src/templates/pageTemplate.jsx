@@ -6,7 +6,6 @@ import SignupContent from '../components/contents/signupContent';
 import HomeContent from '../components/contents/homeContent';
 import PostContent from '../components/contents/postContent';
 
-// bottomNavButton 추가
 const PageTemplate = (props) => {
   const { pagesType } = props;
   return (
