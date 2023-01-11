@@ -2,9 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const ListItem = (props) => {
-  const { title, nickname, category, location } = props;
+  const { id, title, nickname, category, location, onClick } = props;
   return (
-    <div className="py-9 px-6 w-8/12 h-32 border-border_grey border-border_1 rounded-3xl flex justify-between items-center m-9">
+    <div
+      id={id}
+      className="py-9 px-6 w-8/12 h-32 border-border_grey border-border_1 rounded-3xl flex justify-between items-center m-9"
+      aria-hidden="true"
+      onClick={onClick}
+    >
       <div className="flex flex-col items-start justify-center">
         <span className="text-font_black text-lg font-semibold">
           {category} | {title}
@@ -16,10 +21,12 @@ const ListItem = (props) => {
   );
 };
 ListItem.propTypes = {
+  id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   nickname: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
+  onClick: PropTypes.string.isRequired,
 };
 
 export default ListItem;
