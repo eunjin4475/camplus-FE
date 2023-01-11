@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// eslint-disable-next-line import/prefer-default-export
 export const Btn = (props) => {
   const { text, submitEvent } = props;
   return (
@@ -47,26 +46,7 @@ export const Navbtn1 = (props) => {
   );
 };
 
-// 회원가입 버튼
-export const Joinbtn = (props) => {
-  const { text, submitEvent } = props;
-  return (
-    <button
-      className="h-20 w-52 px-12 py-6 rounded-lg bg-font_orange m-8"
-      type="submit"
-      onClick={submitEvent}
-    >
-      <span className="font-semibold text-lg">{text}</span>
-    </button>
-  );
-};
-
 Btn.propTypes = {
-  text: PropTypes.string.isRequired,
-  submitEvent: PropTypes.func.isRequired,
-};
-
-Joinbtn.propTypes = {
   text: PropTypes.string.isRequired,
   submitEvent: PropTypes.func.isRequired,
 };
