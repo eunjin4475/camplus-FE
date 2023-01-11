@@ -1,16 +1,11 @@
 import React from 'react';
 import './App.css';
-import Btn from './components/button';
+import Signin from './pages/signin';
 
 const App = () => {
   return (
     <div className="App">
-      <Btn
-        text="버튼"
-        submitEvent={() => {
-          console.log(1);
-        }}
-      />
+      <Signin />
     </div>
   );
 };
