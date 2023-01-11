@@ -5,7 +5,7 @@ const Btn = (props) => {
   const { text, submitEvent } = props;
   return (
     <button
-      className="h-20 w-52 px-12 py-6 rounded-lg bg-font_green"
+      className="h-20 w-52 px-12 py-6 rounded-lg bg-font_green hover:bg-font_item_grey"
       type="submit"
       onClick={submitEvent}
     >
