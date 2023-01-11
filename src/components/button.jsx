@@ -80,13 +80,3 @@ Navbtn1.propTypes = {
   text: PropTypes.string.isRequired,
   submitEvent: PropTypes.func.isRequired,
 };
-
-// Joinbtn.propTypes = {
-//   text: PropTypes.string.isRequired,
-//   submitEvent: PropTypes.func.isRequired,
-// };
-
-// Btn1.propTypes = {
-//   text: PropTypes.string.isRequired,
-//   submitEvent: PropTypes.func.isRequired,
-// };
