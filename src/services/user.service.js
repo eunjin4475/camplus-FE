@@ -4,8 +4,9 @@ import authHeader from './auth-header';
 
 const API_URL = '/auth/';
 
-export const getListAll = () => {
-  return axios.get(`${API_URL}`, { headers: authHeader() });
+export const getListAll = async () => {
+  const result = axios.get(`${API_URL}`, { headers: authHeader() });
+  return result;
 };
 
 export const getList = ({ univ, id }) => {

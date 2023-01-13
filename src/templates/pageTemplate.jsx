@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import Header from '../components/header';
 import SigninContent from '../components/contents/signinContent';
 import SignupContent from '../components/contents/signupContent';
-import HomeContent from '../components/contents/homeContent';
 import PostContent from '../components/contents/postContent';
+import CategoryBtn from '../components/listButton';
+import HomeContent from '../components/contents/homeContent';
 
 const PageTemplate = (props) => {
   const { pagesType } = props;
@@ -13,7 +14,12 @@ const PageTemplate = (props) => {
       <Header pagesType={pagesType} />
       {pagesType === '로그인' && <SigninContent />}
       {pagesType === '회원가입' && <SignupContent />}
-      {pagesType === '홈' && <HomeContent />}
+      {pagesType === '홈' && (
+        <div>
+          <CategoryBtn />
+          <HomeContent />
+        </div>
+      )}
       {pagesType === '작성' && <PostContent />}
     </div>
   );

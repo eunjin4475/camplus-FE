@@ -16,13 +16,13 @@ export const Btn = (props) => {
 
 // 흰색 버튼(하단)
 export const Navbtn = (props) => {
-  const { text, submitEvent } = props;
+  const { text, onClick } = props;
   // const navigate = useNavigate(`/${text}`);
   return (
     <button
       className="inline-block px-6 py-2.5  font-medium text-xs leading-tight uppercase rounded shadow-lg"
       type="submit"
-      onClick={submitEvent}
+      onClick={onClick}
     >
       {text}
     </button>
@@ -31,15 +31,12 @@ export const Navbtn = (props) => {
 
 // 흰색 버튼(상단)
 export const Navbtn1 = (props) => {
-  // eslint-disable-next-line react/prop-types
-  const { text, submitEvent } = props;
-  // const navigate = useNavigate(`/${text}`);
+  const { text, onClick } = props;
   return (
     <button
-      // className="hover: btn_bg_green "
       className=" border hover:bg-btn_bg_green font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
       type="submit"
-      onClick={submitEvent}
+      onClick={onClick}
     >
       {text}
     </button>
@@ -53,10 +50,10 @@ Btn.propTypes = {
 
 Navbtn.propTypes = {
   text: PropTypes.string.isRequired,
-  submitEvent: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 Navbtn1.propTypes = {
   text: PropTypes.string.isRequired,
-  submitEvent: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
