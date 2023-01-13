@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Btn, Joinbtn } from '../button';
 import { useNavigate } from 'react-router-dom';
-import { login } from '../../services/auth.service';
+import { Btn } from '../button';
 import InputItem from '../inputItem';
 /**
  * @추가할것 빈값이 넘어가지 않도록 validation 설정하기
