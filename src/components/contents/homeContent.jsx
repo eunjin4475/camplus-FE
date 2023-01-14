@@ -1,18 +1,21 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes, useParams } from 'react-router-dom';
+import { getListData } from '../../redux/listSlice';
 
 const HomeContent = () => {
   const { category } = useParams();
-  // const [listData, setListData] = useState([]);
-  // useEffect(async () => {
-  //   const result = await axios.get(`/list/${category}`);
-  //   setListData(result.json());
-  //   return category;
-  // }, []);
-  // useEffect(() => {
-  //   console.log(listData);
-  // }, []);
-  // console.log(category);
+  // 값을 가져올 때
+  const dispatch = useDispatch();
+  const listData = useSelector((state) => {
+    return state.lists.value;
+  });
+  const status = useSelector((state) => {
+    return state.lists.status;
+  });
+  dispatch(getListData(category));
+  console.log(listData);
+  console.log(status);
 
   return (
     <Routes>
