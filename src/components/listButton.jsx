@@ -1,12 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
-import { Navbtn1 } from './button';
+import { Navbtn, Navbtn1 } from './button';
 
 /**
  * @기능구현 onClick시 navigate 이동
  */
 
-const CategoryBtn = () => {
+export const CategoryBtn = () => {
   const navigate = useNavigate();
   return (
     <div>
@@ -56,4 +57,33 @@ const CategoryBtn = () => {
   );
 };
 
-export default CategoryBtn;
+export const BottomNavBtn = (props) => {
+  const { className } = props;
+  const navigate = useNavigate();
+  return (
+    <div className={className}>
+      <Navbtn
+        text="홈"
+        onClick={() => {
+          navigate('/home');
+        }}
+      />
+      <Navbtn
+        text="+"
+        onClick={() => {
+          navigate('/post');
+        }}
+      />
+      <Navbtn
+        text="마이"
+        onClick={() => {
+          navigate('/mypage');
+        }}
+      />
+    </div>
+  );
+};
+
+BottomNavBtn.propTypes = {
+  className: PropTypes.string.isRequired,
+};

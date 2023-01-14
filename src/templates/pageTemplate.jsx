@@ -4,7 +4,7 @@ import Header from '../components/header';
 import SigninContent from '../components/contents/signinContent';
 import SignupContent from '../components/contents/signupContent';
 import PostContent from '../components/contents/postContent';
-import CategoryBtn from '../components/listButton';
+import { BottomNavBtn, CategoryBtn } from '../components/listButton';
 import HomeContent from '../components/contents/homeContent';
 
 const PageTemplate = (props) => {
@@ -21,6 +21,7 @@ const PageTemplate = (props) => {
         </div>
       )}
       {pagesType === '작성' && <PostContent />}
+      <BottomNavBtn className="fixed bottom-0" />
     </div>
   );
 };
