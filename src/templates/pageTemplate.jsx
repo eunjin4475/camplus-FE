@@ -6,6 +6,7 @@ import SignupContent from '../components/contents/signupContent';
 import PostContent from '../components/contents/postContent';
 import { BottomNavBtn, CategoryBtn } from '../components/listButton';
 import HomeContent from '../components/contents/homeContent';
+import MyPageContent from '../components/contents/myPageContent';
 
 const PageTemplate = (props) => {
   const { pagesType } = props;
@@ -21,6 +22,7 @@ const PageTemplate = (props) => {
         </div>
       )}
       {pagesType === '작성' && <PostContent />}
+      {pagesType === '마이페이지' && <MyPageContent />}
       <BottomNavBtn className="fixed bottom-0" />
     </div>
   );

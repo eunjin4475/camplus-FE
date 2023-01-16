@@ -5,6 +5,7 @@ import Home from './pages/home';
 import Post from './pages/post';
 import SignIn from './pages/signin';
 import SignUp from './pages/signup';
+import MyPage from './pages/myPage';
 
 const userData = 'userData';
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
           <Route path="/home/:category" element={<Home />} />
         </Route>
         <Route path="/post" element={<Post />} />
+        <Route path="/myPage" elememt={<MyPage />} />
       </Routes>
     </div>
   );
