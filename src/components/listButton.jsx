@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
+// import { useDispatch } from 'react-redux';
 import { Navbtn, Navbtn1 } from './button';
-
-/**
- * @기능구현 onClick시 navigate 이동
- */
+// import { getListData } from '../redux/listSlice';
 
 export const CategoryBtn = () => {
   const navigate = useNavigate();
+  // const dispatch = useDispatch();
   return (
     <div>
       <Navbtn1
@@ -16,6 +15,7 @@ export const CategoryBtn = () => {
         onClick={(event) => {
           event.preventDefault();
           navigate('book');
+          // dispatch(getListData('book'));
         }}
       />
       <Navbtn1
@@ -23,6 +23,7 @@ export const CategoryBtn = () => {
         onClick={(event) => {
           event.preventDefault();
           navigate('charger');
+          // dispatch(getListData('charger'));
         }}
       />
       <Navbtn1
@@ -30,6 +31,7 @@ export const CategoryBtn = () => {
         onClick={(event) => {
           event.preventDefault();
           navigate('calculator');
+          // dispatch(getListData('calculator'));
         }}
       />
       <Navbtn1
@@ -37,6 +39,7 @@ export const CategoryBtn = () => {
         onClick={(event) => {
           event.preventDefault();
           navigate('supplies');
+          // dispatch(getListData('supplies'));
         }}
       />
       <Navbtn1
@@ -44,6 +47,7 @@ export const CategoryBtn = () => {
         onClick={(event) => {
           event.preventDefault();
           navigate('lost');
+          // dispatch(getListData('lost'));
         }}
       />
       <Navbtn1
@@ -51,6 +55,7 @@ export const CategoryBtn = () => {
         onClick={(event) => {
           event.preventDefault();
           navigate('exception');
+          // dispatch(getListData('exception'));
         }}
       />
     </div>

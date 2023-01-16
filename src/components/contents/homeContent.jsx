@@ -1,13 +1,9 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Route, Routes, useParams } from 'react-router-dom';
-import { getListData } from '../../redux/listSlice';
 
 const HomeContent = () => {
   const { category } = useParams();
-  // 값을 가져올 때
-  const dispatch = useDispatch();
-  dispatch(getListData(category));
   const listData = useSelector((state) => {
     return state.lists.value;
   });
