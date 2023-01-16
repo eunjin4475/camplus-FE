@@ -1,12 +1,21 @@
-import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import './App.css';
 import Home from './pages/home';
 import Post from './pages/post';
 import SignIn from './pages/signin';
 import SignUp from './pages/signup';
 
+const userData = 'userData';
 const App = () => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    const token = localStorage.getItem(userData);
+    if (token) {
+      navigate('/home');
+    }
+  }, []);
+  navigate('/');
   return (
     <div className="App">
       <Routes>
