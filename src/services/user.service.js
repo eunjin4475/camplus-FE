@@ -2,25 +2,56 @@
 import axios from 'axios';
 import authHeader from './auth-header';
 
-const API_URL = '/auth/';
+const API_BASE_URL = 'http://127.0.0.1:8000/';
+const posts = 'posts/';
+const comments = 'comments/';
 
-export const getListAll = async () => {
-  const result = axios.get(`${API_URL}`, { headers: authHeader() });
-  return result;
+export const getLists = async (category) => {
+  if (category === null) {
+    const response = await axios.get(`${API_BASE_URL}${posts}`, { headers: authHeader() });
+    return response;
+  }
+  const response = axios.get(`${API_BASE_URL}${posts}${category}`, { headers: authHeader() });
+  return response;
 };
 
-export const getList = ({ univ, id }) => {
-  return axios.get(`${API_URL}${univ}/${id}`);
-};
-// user가 로그인을 하였을 경우에 한해서 보여지는 값
-export const getUserBoard = () => {
-  return axios.get(`${API_URL}user`, { headers: authHeader() });
+export const getList = async (id) => {
+  const response = await axios.get(`${API_BASE_URL}${posts}${id}`, { headers: authHeader() });
+  return response;
 };
 
-export const getModeratorBoard = () => {
-  return axios.get(`${API_URL}mod`, { headers: authHeader() });
+export const postList = (props) => {
+  const { title, category, location, content } = props;
+  axios.post(
+    `${API_BASE_URL}${posts}`,
+    {
+      title,
+      category,
+      location,
+      content,
+    },
+    { headers: authHeader() }
+  );
 };
 
-export const getAdminBoard = () => {
-  return axios.get(`${API_URL}admin`, { headers: authHeader() });
+export const postComment = (props) => {
+  const { comment } = props;
+  axios.post(
+    `${API_BASE_URL}${comments}`,
+    {
+      comment,
+    },
+    { headers: authHeader() }
+  );
+};
+
+export const deleteList = (props) => {
+  const { id } = props;
+  axios.delete(
+    `${API_BASE_URL}${posts}`,
+    {
+      id,
+    },
+    { headers: authHeader() }
+  );
 };
