@@ -7,13 +7,13 @@ const HomeContent = () => {
   const { category } = useParams();
   // 값을 가져올 때
   const dispatch = useDispatch();
+  dispatch(getListData(category));
   const listData = useSelector((state) => {
     return state.lists.value;
   });
   const status = useSelector((state) => {
     return state.lists.status;
   });
-  dispatch(getListData(category));
   console.log(listData);
   console.log(status);
 
