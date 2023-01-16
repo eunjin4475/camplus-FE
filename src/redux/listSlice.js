@@ -8,12 +8,14 @@ export const getListData = createAsyncThunk('listSlice/getListData', async (cate
   return data.value();
 });
 
+const initialState = {
+  data: undefined,
+  status: '',
+};
+
 export const listSlice = createSlice({
   name: 'list',
-  initialState: {
-    value: {},
-    status: '',
-  },
+  initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(getListData.pending, (state) => {
