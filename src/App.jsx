@@ -15,7 +15,7 @@ const App = () => {
     if (token) {
       navigate('/home');
     }
-  }, []);
+  });
   navigate('/');
   return (
     <div className="App">
