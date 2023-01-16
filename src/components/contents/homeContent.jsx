@@ -1,9 +1,14 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Route, Routes, useParams } from 'react-router-dom';
+import { getListData } from '../../redux/listSlice';
 
 const HomeContent = () => {
   const { category } = useParams();
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getListData(category));
+  }, [category]);
   const listData = useSelector((state) => {
     return state.lists.value;
   });
