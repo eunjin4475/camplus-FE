@@ -19,11 +19,21 @@ const PageTemplate = (props) => {
         <div>
           <CategoryBtn />
           <HomeContent />
+          <BottomNavBtn className="fixed bottom-0" />
         </div>
       )}
-      {pagesType === '작성' && <PostContent />}
-      {pagesType === '마이페이지' && <MyPageContent />}
-      <BottomNavBtn className="fixed bottom-0" />
+      {pagesType === '작성' && (
+        <div>
+          <PostContent />
+          <BottomNavBtn />
+        </div>
+      )}
+      {pagesType === '마이페이지' && (
+        <div>
+          <MyPageContent />
+          <BottomNavBtn />
+        </div>
+      )}
     </div>
   );
 };
