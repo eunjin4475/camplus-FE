@@ -4,8 +4,9 @@ import Header from '../components/header';
 import SigninContent from '../components/contents/signinContent';
 import SignupContent from '../components/contents/signupContent';
 import PostContent from '../components/contents/postContent';
-import CategoryBtn from '../components/listButton';
+import { BottomNavBtn, CategoryBtn } from '../components/listButton';
 import HomeContent from '../components/contents/homeContent';
+import MyPageContent from '../components/contents/myPageContent';
 
 const PageTemplate = (props) => {
   const { pagesType } = props;
@@ -18,9 +19,21 @@ const PageTemplate = (props) => {
         <div>
           <CategoryBtn />
           <HomeContent />
+          <BottomNavBtn className="fixed bottom-0" />
         </div>
       )}
-      {pagesType === '작성' && <PostContent />}
+      {pagesType === '작성' && (
+        <div>
+          <PostContent />
+          <BottomNavBtn />
+        </div>
+      )}
+      {pagesType === '마이페이지' && (
+        <div>
+          <MyPageContent />
+          <BottomNavBtn />
+        </div>
+      )}
     </div>
   );
 };
