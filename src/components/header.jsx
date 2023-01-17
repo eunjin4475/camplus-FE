@@ -5,14 +5,9 @@ import logo from '../src_asset/logo.png';
 const Header = (props) => {
   const { pagesType } = props;
   return (
-    <div className="flex flex-col justify-center items-center">
-      <img src={logo} alt="로고 이미지" />
-      {pagesType === 'home' ? (
-        <span>버튼 들어가야 합니다</span>
-      ) : (
-        <span className=" text-font_black font-semibold text-lg">{pagesType}</span>
-      )}
-      <hr className=" border-border_grey w-full" />
+    <div className="flex flex-col justify-evenly items-center py-6 ">
+      <img src={logo} alt="로고 이미지" className="w-logoWidth h-logoHeight" />
+      {pagesType !== '로그인' && <span className="text-fontSize_sm mt-5">{pagesType}</span>}
     </div>
   );
 };

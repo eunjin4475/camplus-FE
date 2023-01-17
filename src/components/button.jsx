@@ -16,7 +16,7 @@ export const MainBtn = (props) => {
 
 // 흰색 버튼(하단)
 export const BottomNavBtn = (props) => {
-  const { text, onClick } = props;
+  const { onClick, src } = props;
   // const navigate = useNavigate(`/${text}`);
   return (
     <button
@@ -24,7 +24,7 @@ export const BottomNavBtn = (props) => {
       type="button"
       onClick={onClick}
     >
-      {text}
+      <img src={src} alt="navbtn" />
     </button>
   );
 };
@@ -49,8 +49,8 @@ MainBtn.propTypes = {
 };
 
 BottomNavBtn.propTypes = {
-  text: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
+  src: PropTypes.string.isRequired,
 };
 
 CategoryBtn.propTypes = {
