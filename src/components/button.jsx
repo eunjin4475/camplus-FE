@@ -1,21 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const Btn = (props) => {
+export const MainBtn = (props) => {
   const { text, submitEvent } = props;
   return (
     <button
-      className="h-20 w-52 px-12 py-6 rounded-lg bg-font_orange m-5"
+      className=" w-mainBtnWidth h-mainBtnHeight bg-mainColor_yellow px-48 py-4 rounded-borderRadius_lg"
       type="submit"
       onClick={submitEvent}
     >
-      <span className="font-semibold text-lg">{text}</span>
+      <span className="font-semibold text-fontSize_sm text-fontColor_white">{text}</span>
     </button>
   );
 };
 
 // 흰색 버튼(하단)
-export const Navbtn = (props) => {
+export const BottomNavBtn = (props) => {
   const { text, onClick } = props;
   // const navigate = useNavigate(`/${text}`);
   return (
@@ -30,7 +30,7 @@ export const Navbtn = (props) => {
 };
 
 // 흰색 버튼(상단)
-export const Navbtn1 = (props) => {
+export const CategoryBtn = (props) => {
   const { text, onClick } = props;
   return (
     <button
@@ -43,17 +43,17 @@ export const Navbtn1 = (props) => {
   );
 };
 
-Btn.propTypes = {
+MainBtn.propTypes = {
   text: PropTypes.string.isRequired,
   submitEvent: PropTypes.func.isRequired,
 };
 
-Navbtn.propTypes = {
+BottomNavBtn.propTypes = {
   text: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
 };
 
-Navbtn1.propTypes = {
+CategoryBtn.propTypes = {
   text: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
 };

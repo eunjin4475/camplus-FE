@@ -1,48 +1,48 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
-import { Navbtn, Navbtn1 } from './button';
+import { BottomNavBtn, CategoryBtn } from './button';
 
-export const CategoryBtn = () => {
+export const CategoryBtnList = () => {
   const navigate = useNavigate();
   return (
     <div>
-      <Navbtn1
+      <CategoryBtn
         text="책"
         onClick={(event) => {
           event.preventDefault();
           navigate('book');
         }}
       />
-      <Navbtn1
+      <CategoryBtn
         text="충전기"
         onClick={(event) => {
           event.preventDefault();
           navigate('charger');
         }}
       />
-      <Navbtn1
+      <CategoryBtn
         text="계산기"
         onClick={(event) => {
           event.preventDefault();
           navigate('calculator');
         }}
       />
-      <Navbtn1
+      <CategoryBtn
         text="학생용품"
         onClick={(event) => {
           event.preventDefault();
           navigate('supplies');
         }}
       />
-      <Navbtn1
+      <CategoryBtn
         text="분실물"
         onClick={(event) => {
           event.preventDefault();
           navigate('lost');
         }}
       />
-      <Navbtn1
+      <CategoryBtn
         text="그 외"
         onClick={(event) => {
           event.preventDefault();
@@ -53,24 +53,24 @@ export const CategoryBtn = () => {
   );
 };
 
-export const BottomNavBtn = (props) => {
+export const BottomNavBtnList = (props) => {
   const { className } = props;
   const navigate = useNavigate();
   return (
     <div className={className}>
-      <Navbtn
+      <BottomNavBtn
         text="홈"
         onClick={() => {
           navigate('/home');
         }}
       />
-      <Navbtn
+      <BottomNavBtn
         text="+"
         onClick={() => {
           navigate('/post');
         }}
       />
-      <Navbtn
+      <BottomNavBtn
         text="마이"
         onClick={() => {
           navigate('/mypage');
@@ -80,6 +80,6 @@ export const BottomNavBtn = (props) => {
   );
 };
 
-BottomNavBtn.propTypes = {
+BottomNavBtnList.propTypes = {
   className: PropTypes.string.isRequired,
 };
