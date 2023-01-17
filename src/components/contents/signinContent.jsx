@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Btn } from '../button';
+import { MainBtn } from '../button';
 import InputItem from '../inputItem';
 /**
  * @추가할것 빈값이 넘어가지 않도록 validation 설정하기
@@ -30,13 +30,13 @@ const SigninContent = () => {
           });
         }}
       />
-      <Btn
+      <MainBtn
         text="로그인"
         submitEvent={() => {
           console.log(1);
         }}
       />
-      <Btn
+      <MainBtn
         text="회원가입"
         submitEvent={() => {
           navigate('/signup');

@@ -10,9 +10,10 @@ const InputItem = (props) => {
   return (
     <div
       id="inputItem"
-      className="py-9 px-6 w-10/12 h-24 border-border_grey border-border_1 rounded-3xl flex justify-start items-center m-4 focus"
+      className="py-9 px-8 w-inputItemWidth h-inputItemHeight border-subColor_grey border-border_md rounded-borderRadius_lg flex justify-start items-center focus"
     >
-      <span className="text-font_item_grey text-lg font-semibold">{itemType} | </span>
+      <span className=" text-fontSize_sm text-fontColor_Black font-semibold">{itemType}</span>
+      <span className=" text-fontSize_md text-subColor_grey font-semibold ml-2"> - </span>
       {itemType === '닉네임' && (
         <input
           className="focus:outline-none ml-2 w-auto"
