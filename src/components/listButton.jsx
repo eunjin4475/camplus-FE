@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import { Navbtn, Navbtn1 } from './button';
+import house from '../src_asset/House.png';
+import plus from '../src_asset/Plus.png';
+import vector from '../src_asset/Vector.png';
 
 export const CategoryBtn = () => {
   const navigate = useNavigate();
@@ -59,19 +62,19 @@ export const BottomNavBtn = (props) => {
   return (
     <div className={className}>
       <Navbtn
-        text="홈"
+        src={house}
         onClick={() => {
           navigate('/home');
         }}
       />
       <Navbtn
-        text="+"
+        src={plus}
         onClick={() => {
           navigate('/post');
         }}
       />
       <Navbtn
-        text="마이"
+        src={vector}
         onClick={() => {
           navigate('/mypage');
         }}
