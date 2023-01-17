@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import { BottomNavBtn, CategoryBtn } from './button';
 import house from '../src_asset/House.png';
@@ -9,7 +8,7 @@ import vector from '../src_asset/Vector.png';
 export const CategoryBtnList = () => {
   const navigate = useNavigate();
   return (
-    <div>
+    <div className="h-categoryBtnListHeight items-start">
       <CategoryBtn
         text="책"
         onClick={(event) => {
@@ -56,11 +55,10 @@ export const CategoryBtnList = () => {
   );
 };
 
-export const BottomNavBtnList = (props) => {
-  const { className } = props;
+export const BottomNavBtnList = () => {
   const navigate = useNavigate();
   return (
-    <div className={className}>
+    <div className="flex flex-row justify-center items-center">
       <BottomNavBtn
         src={house}
         onClick={() => {
@@ -83,8 +81,4 @@ export const BottomNavBtnList = (props) => {
       />
     </div>
   );
-};
-
-BottomNavBtnList.propTypes = {
-  className: PropTypes.string.isRequired,
 };
