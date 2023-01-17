@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import logo from './logo.png';
+import logo from '../src_asset/logo.png';
 
 const Header = (props) => {
   const { pagesType } = props;

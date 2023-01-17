@@ -13,6 +13,18 @@ module.exports = {
     borderWidth: {
       border_md: '3px',
     },
+    width: {
+      logoWidth: '217px',
+      inputItemWidth: '920px',
+      mainBtnWidth: '450px',
+      categoryBtnWidth: '112px',
+    },
+    height: {
+      logoHeight: '35px',
+      inputItemHeight: '93px',
+      mainBtnHeight: '75px',
+      categoryBtnHeight: '45px',
+    },
     borderRadius: {
       borderRadius_sm: '20px',
       borderRadius_md: '40px',
