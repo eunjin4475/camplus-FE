@@ -5,7 +5,7 @@ export const Btn = (props) => {
   const { text, submitEvent } = props;
   return (
     <button
-      className="h-20 w-52 px-12 py-6 rounded-lg bg-font_orange"
+      className="h-20 w-52 px-12 py-6 rounded-lg bg-font_orange m-5"
       type="submit"
       onClick={submitEvent}
     >
