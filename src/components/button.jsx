@@ -20,7 +20,7 @@ export const BottomNavBtn = (props) => {
   // const navigate = useNavigate(`/${text}`);
   return (
     <button
-      className="inline-block px-6 py-2.5  font-medium text-xs leading-tight uppercase rounded shadow-lg"
+      className="justify-around items-center ml-20 px-48 py-2.5 font-medium leading-tight uppercase rounded shadow-lg"
       type="button"
       onClick={onClick}
     >
@@ -34,7 +34,7 @@ export const CategoryBtn = (props) => {
   const { text, onClick } = props;
   return (
     <button
-      className=" border hover:bg-btn_bg_green font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+      className="w-categoryBtnWidth h-categoryBtnHeight text-fontSize_sm bg-categoryBtnColor_grey rounded-borderRadius_lg m-5"
       type="button"
       onClick={onClick}
     >
