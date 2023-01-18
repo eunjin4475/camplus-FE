@@ -7,6 +7,7 @@ import PostContent from '../components/contents/postContent';
 import { BottomNavBtnList } from '../components/listButton';
 import HomeContent from '../components/contents/homeContent';
 import MyPageContent from '../components/contents/myPageContent';
+import Posting from '../components/contents/postingContent';
 
 const PageTemplate = (props) => {
   const { pagesType } = props;
@@ -19,8 +20,9 @@ const PageTemplate = (props) => {
         {pagesType === '로그인' && <SigninContent />}
         {pagesType === '회원가입' && <SignupContent />}
         {pagesType === '최근 게시물' && <HomeContent />}
-        {pagesType === '작성' && <PostContent />}
+        {pagesType === '글 작성' && <PostContent />}
         {pagesType === '마이페이지' && <MyPageContent />}
+        {pagesType === '게시물' && <Posting />}
       </div>
       <div className=" h-bottomNavBtnHeight fixed bottom-0">
         <BottomNavBtnList />

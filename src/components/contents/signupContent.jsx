@@ -1,20 +1,19 @@
+import axios from 'axios';
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { MainBtn, SubmitEventBtn } from '../button';
-import InputItem from '../inputItem';
+import { SubmitEventBtn } from '../button';
+import { InputItem } from '../inputItem';
 
 const SignupContent = () => {
-  const navigate = useNavigate();
   const [signupData, setSignupData] = useState({
     nickname: '',
     username: '',
     password: '',
-    passwordOk: false,
-    univ: '',
+    password2: '',
+    university: '',
   });
   console.log(signupData);
   return (
-    <div className="flex flex-col justify-evenly items-center h-contentHeight">
+    <div className="flex flex-col justify-between items-center h-contentHeight">
       <form id="signup">
         <InputItem
           itemType="닉네임"
@@ -44,12 +43,8 @@ const SignupContent = () => {
           itemType="비밀번호 확인"
           onChange={(event) => {
             setSignupData((prevState) => {
-              if (signupData.password === event.target.value) {
-                return { ...prevState, passwordOk: true };
-              }
-              return { ...prevState, passwordOk: false };
+              return { ...prevState, password2: event.target.value };
             });
-            // passwordOk 여부에 따른 span 처리 필요함.
           }}
         />
         {/* 대학교 선택은 아이템 선택을 통해서 state 변경을 해주는 식으로 함. */}
@@ -57,26 +52,35 @@ const SignupContent = () => {
           itemType="대학교 선택"
           onChange={(event) => {
             setSignupData((prevState) => {
-              return { ...prevState, univ: event.target.value };
+              return { ...prevState, university: event.target.value };
             });
           }}
         />
-      </form>
-      <div className=" flex flex-col justify-center items-center">
         <SubmitEventBtn
           form="signup"
           text="작성완료"
           submitEvent={() => {
-            console.log(2);
+            axios({
+              method: 'post',
+              url: 'http://127.0.0.1:8000/users/register/',
+              data: {
+                username: signupData.username,
+                nickname: signupData.nickname,
+                password: signupData.password,
+                password2: signupData.password2,
+                university: signupData.university,
+              },
+            })
+              .then((res) => {
+                console.log(res);
+              })
+              .catch((error) => {
+                console.log(error);
+              });
           }}
         />
-        <MainBtn
-          text="뒤로가기"
-          onClick={() => {
-            navigate('/');
-          }}
-        />
-      </div>
+      </form>
+      <div className=" flex flex-col justify-center items-center" />
     </div>
   );
 };

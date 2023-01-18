@@ -3,8 +3,10 @@ import axios from 'axios';
 import authHeader from '../services/auth-header';
 
 export const getListData = createAsyncThunk('listSlice/getListData', async (category) => {
-  const response = await axios.get(`/list/${category}`, { headers: authHeader() });
-  const data = await response.json();
+  const res = axios.get(`http://127.0.0.1:8000/posts/?category=${category}`, {
+    headers: authHeader(),
+  });
+  const data = await res.json();
   return data.value();
 });
 
