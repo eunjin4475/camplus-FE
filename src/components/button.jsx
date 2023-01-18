@@ -20,11 +20,11 @@ export const BottomNavBtn = (props) => {
   // const navigate = useNavigate(`/${text}`);
   return (
     <button
-      className="justify-around items-center ml-20 px-48 py-2.5 font-medium leading-tight uppercase rounded shadow-lg"
+      className="items-center ml-20 px-48 py-2.5 font-medium leading-tight uppercase rounded shadow-lg"
       type="button"
       onClick={onClick}
     >
-      <img src={src} alt="navbtn" />
+      <img className=" w-16 md:w-32 lg:w-48 " src={src} alt="navbtn" />
     </button>
   );
 };
