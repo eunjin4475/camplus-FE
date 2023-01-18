@@ -4,11 +4,13 @@
 // register() - post
 
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const API_URL = '/auth/';
 
 export const login = async (props) => {
   const { username, password } = props;
+  const navigate = useNavigate();
   const res = await axios({
     method: 'post',
     url: `${API_URL}signin`,
@@ -19,6 +21,7 @@ export const login = async (props) => {
   });
   if (res.data.accessToken) {
     localStorage.setItem('user', JSON.stringify(res.data));
+    navigate('/home');
   }
 };
 
