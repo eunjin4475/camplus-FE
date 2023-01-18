@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { MainBtn, SubmitEventBtn } from '../button';
-import InputItem from '../inputItem';
+import { SubmitEventBtn } from '../button';
+import { InputItem } from '../inputItem';
 
 const SignupContent = () => {
-  const navigate = useNavigate();
   const [signupData, setSignupData] = useState({
     nickname: '',
     username: '',
@@ -14,7 +12,7 @@ const SignupContent = () => {
   });
   console.log(signupData);
   return (
-    <div className="flex flex-col justify-evenly items-center h-contentHeight">
+    <div className="flex flex-col justify-between items-center h-contentHeight">
       <form id="signup">
         <InputItem
           itemType="닉네임"
@@ -68,12 +66,6 @@ const SignupContent = () => {
           text="작성완료"
           submitEvent={() => {
             console.log(2);
-          }}
-        />
-        <MainBtn
-          text="뒤로가기"
-          onClick={() => {
-            navigate('/');
           }}
         />
       </div>
