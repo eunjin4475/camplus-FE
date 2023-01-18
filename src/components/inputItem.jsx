@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
-const InputItem = (props) => {
+export const InputItem = (props) => {
   const { itemType, onChange } = props;
   const inputRef = useRef(null);
   useEffect(() => {
@@ -59,6 +59,24 @@ const InputItem = (props) => {
           onChange={onChange}
         />
       )}
+    </div>
+  );
+};
+InputItem.propTypes = {
+  itemType: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
+
+export const PostInputItem = (props) => {
+  const { itemType, onChange, className } = props;
+  const inputRef = useRef(null);
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
+  return (
+    <div id="inputItem" className={className}>
+      <span className=" text-fontSize_md text-fontColor_Black font-semibold">{itemType}</span>
+      <span className=" text-fontSize_lg text-subColor_grey font-semibold ml-2"> : </span>
       {itemType === '제목' && (
         <input
           className="focus:outline-none ml-2 w-auto"
@@ -98,9 +116,9 @@ const InputItem = (props) => {
     </div>
   );
 };
-InputItem.propTypes = {
+
+PostInputItem.propTypes = {
   itemType: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
+  className: PropTypes.string.isRequired,
 };
-
-export default InputItem;
