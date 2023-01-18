@@ -6,14 +6,14 @@
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const API_URL = '/auth/';
+const API_BASE_URL = 'http://127.0.0.1:8000/';
 
 export const login = async (props) => {
   const { username, password } = props;
   const navigate = useNavigate();
   const res = await axios({
     method: 'post',
-    url: `${API_URL}signin`,
+    url: 'http://127.0.0.1:8000/users/login/',
     data: {
       username,
       password,
@@ -29,14 +29,17 @@ export const logout = () => {
   localStorage.removeItem('user');
 };
 
-export const signup = (username, email, password) => {
+export const signup = (props) => {
+  const { username, nickname, password, password2, university } = props;
   return axios({
     method: 'post',
-    url: `${API_URL}signup`,
+    url: `${API_BASE_URL}/users/register`,
     data: {
       username,
-      email,
+      nickname,
       password,
+      password2,
+      university,
     },
   });
 };

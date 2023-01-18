@@ -1,6 +1,6 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { login } from '../../services/auth.service';
 import { MainBtn, SubmitEventBtn } from '../button';
 import { InputItem } from '../inputItem';
 /**
@@ -36,8 +36,24 @@ const SigninContent = () => {
         <SubmitEventBtn
           form="signin"
           text="로그인"
-          submitEvent={() => {
-            login(account);
+          submitEvent={(e) => {
+            e.preventDefault();
+            axios({
+              method: 'post',
+              url: 'http://127.0.0.1:8000/users/login/',
+              data: {
+                username: account.username,
+                password: account.password,
+              },
+            })
+              .then((res) => {
+                console.log(res.data.token);
+                localStorage.setItem('token', res.data.token);
+              })
+              .then(navigate('/home'))
+              .catch((error) => {
+                console.log(error);
+              });
           }}
         />
         <MainBtn
