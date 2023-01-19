@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { listSlice } from './listSlice';
+import listReducer from './listSlice';
 
 const store = configureStore(
   {
     reducer: {
-      lists: listSlice.reducer,
+      lists: listReducer,
     },
   },
   // eslint-disable-next-line no-underscore-dangle

@@ -11,13 +11,10 @@ const HomeContent = () => {
     dispatch(getListData(category));
   }, [category]);
   const listData = useSelector((state) => {
-    return state.lists.value;
+    return state.lists.list;
   });
-  const status = useSelector((state) => {
-    return state.lists.status;
-  });
+  console.log(category);
   console.log(listData);
-  console.log(status);
 
   return (
     <div className=" h-contentHeight">
