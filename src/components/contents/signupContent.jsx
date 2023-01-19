@@ -1,33 +1,34 @@
-import axios from 'axios';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { signup } from '../../services/auth.service';
 import { SubmitEventBtn } from '../button';
 import { InputItem } from '../inputItem';
 
 const SignupContent = () => {
+  const navigate = useNavigate();
   const [signupData, setSignupData] = useState({
-    nickname: '',
     username: '',
+    nickname: '',
     password: '',
     password2: '',
     university: '',
   });
-  console.log(signupData);
   return (
     <div className="flex flex-col justify-between items-center h-contentHeight">
       <form id="signup">
-        <InputItem
-          itemType="닉네임"
-          onChange={(event) => {
-            setSignupData((prevState) => {
-              return { ...prevState, nickname: event.target.value };
-            });
-          }}
-        />
         <InputItem
           itemType="아이디"
           onChange={(event) => {
             setSignupData((prevState) => {
               return { ...prevState, username: event.target.value };
+            });
+          }}
+        />
+        <InputItem
+          itemType="닉네임"
+          onChange={(event) => {
+            setSignupData((prevState) => {
+              return { ...prevState, nickname: event.target.value };
             });
           }}
         />
@@ -59,24 +60,12 @@ const SignupContent = () => {
         <SubmitEventBtn
           form="signup"
           text="작성완료"
-          submitEvent={() => {
-            axios({
-              method: 'post',
-              url: 'http://127.0.0.1:8000/users/register/',
-              data: {
-                username: signupData.username,
-                nickname: signupData.nickname,
-                password: signupData.password,
-                password2: signupData.password2,
-                university: signupData.university,
-              },
-            })
-              .then((res) => {
-                console.log(res);
-              })
-              .catch((error) => {
-                console.log(error);
-              });
+          submitEvent={async (e) => {
+            e.preventDefault();
+            const response = await signup(signupData);
+            if (response.status === 201) {
+              navigate('/');
+            }
           }}
         />
       </form>
