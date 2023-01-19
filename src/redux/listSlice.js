@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
-import authHeader from '../services/auth-header';
+import { getAllList, getCategoryList } from '../services/user.service';
 
 const initialState = {
   list: [],
@@ -8,12 +7,10 @@ const initialState = {
 
 export const getListData = createAsyncThunk('list/getListData', async (category) => {
   if (category === undefined) {
-    const response = await axios.get('http://127.0.0.1:8000/posts/', { headers: authHeader() });
+    const response = await getAllList();
     return response.data;
   }
-  const response = await axios.get(`http://127.0.0.1:8000/posts/?category=${category}`, {
-    headers: authHeader(),
-  });
+  const response = await getCategoryList(category);
   return response.data;
 });
 
