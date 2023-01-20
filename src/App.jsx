@@ -17,7 +17,7 @@ const App = () => {
     } else {
       navigate('/');
     }
-  }, []);
+  }, [token]);
   return (
     <div className="App">
       <Routes>

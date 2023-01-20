@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getData } from '../../redux/listDataSlice';
 
-const Posting = () => {
+const PostingContent = () => {
   const url = useParams();
   const dispatch = useDispatch();
   useEffect(() => {
@@ -16,4 +16,4 @@ const Posting = () => {
   return <div />;
 };
 
-export default Posting;
+export default PostingContent;

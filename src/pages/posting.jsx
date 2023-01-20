@@ -11,7 +11,7 @@ const Posting = (props) => {
       navigate('/');
     }
   }, []);
-  return <PageTemplate pagesType="게시물 " />;
+  return <PageTemplate pagesType="게시물" />;
 };
 Posting.propTypes = {
   token: PropTypes.string.isRequired,
