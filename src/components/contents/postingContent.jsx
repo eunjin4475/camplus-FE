@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
-import authHeader from '../../services/auth-header';
+import { useDispatch, useSelector } from 'react-redux';
+import { getData } from '../../redux/listDataSlice';
 
 const Posting = () => {
-  const id = useParams();
-  const [data, setData] = useState();
+  const url = useParams();
+  const dispatch = useDispatch();
   useEffect(() => {
-    setData();
-    const response = axios.get(`url/${id}`, { headers: authHeader() });
-    setData(response.data);
-    console.log(data);
-  }, [id]);
+    dispatch(getData(url.id));
+  }, []);
+  const listData = useSelector((state) => {
+    return state.listData.data;
+  });
+  console.log(listData);
   return <div />;
 };
 
