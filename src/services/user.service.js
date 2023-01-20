@@ -6,6 +6,7 @@ const API_BASE_URL = 'http://127.0.0.1:8000/';
 const posts = 'posts/';
 const comments = 'comments/';
 
+// 해결완료
 export const getAllList = () => {
   const response = axios.get(`${API_BASE_URL}${posts}`, { headers: authHeader() });
   return response;
