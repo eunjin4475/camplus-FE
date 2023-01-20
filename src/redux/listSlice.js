@@ -14,7 +14,7 @@ export const getListData = createAsyncThunk('list/getListData', async (category)
   return response.data;
 });
 
-const listSlice = createSlice({
+const listsSlice = createSlice({
   name: 'lists',
   initialState,
   reducers: {},
@@ -30,4 +30,4 @@ const listSlice = createSlice({
   },
 });
 
-export default listSlice.reducer;
+export default listsSlice.reducer;
