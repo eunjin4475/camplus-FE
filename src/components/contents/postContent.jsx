@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { postList } from '../../services/user.service';
 import { SubmitEventBtn } from '../button';
 import { PostInputItem } from '../inputItem';
 
 const PostContent = () => {
+  const navigate = useNavigate();
   const [postData, setPostData] = useState({
     title: '',
     category: '',
     location: '',
-    content: '',
+    body: '',
   });
   console.log(postData);
   return (
@@ -46,7 +48,7 @@ const PostContent = () => {
           itemType="요청"
           onChange={(event) => {
             setPostData((prevState) => {
-              return { ...prevState, content: event.target.value };
+              return { ...prevState, body: event.target.value };
             });
           }}
         />
@@ -55,8 +57,17 @@ const PostContent = () => {
         <SubmitEventBtn
           form="post"
           text="작성완료"
-          submitEvent={() => {
-            postList(postData);
+          submitEvent={(e) => {
+            e.preventDefault();
+            const postResponse = postList(postData);
+            postResponse
+              .then((res) => {
+                console.log(res);
+                navigate('/home');
+              })
+              .catch((error) => {
+                console.log(error);
+              });
           }}
         />
       </div>
