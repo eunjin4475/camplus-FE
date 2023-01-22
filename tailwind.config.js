@@ -9,6 +9,7 @@ module.exports = {
       fontColor_black: '#000000',
       fontColor_grey: '#505050',
       fontColor_white: '#FFFFFF',
+      fontColor_red: '#F60001',
       categoryBtnColor_grey: '#F0F0F0',
     },
     borderWidth: {
