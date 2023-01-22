@@ -13,6 +13,7 @@ const SignupContent = () => {
     password2: '',
     university: '',
   });
+
   return (
     <div className="flex flex-col justify-between items-center h-contentHeight">
       <form id="signup">
@@ -60,12 +61,27 @@ const SignupContent = () => {
         <SubmitEventBtn
           form="signup"
           text="작성완료"
-          submitEvent={async (e) => {
+          submitEvent={(e) => {
             e.preventDefault();
-            const response = await signup(signupData);
-            if (response.status === 201) {
-              navigate('/');
-            }
+            const signupResponse = signup(signupData);
+            signupResponse
+              .then(() => {
+                navigate('/');
+              })
+              .catch((error) => {
+                if (error.response.data.username) {
+                  alert('아이디 부분에 문제가 있어요! 다시 확인해주세요!');
+                }
+                if (error.response.data.nickname) {
+                  alert('닉네임 부분에 문제가 있어요! 다시 확인해주세요!');
+                }
+                if (error.response.data.password) {
+                  alert('비밀번호 부분에 문제가 있어요! 다시 확인해주세요!');
+                }
+                if (error.response.data.university) {
+                  alert('대학교 선택 부분에 문제가 있어요! 다시 확인해주세요!');
+                }
+              });
           }}
         />
       </form>
