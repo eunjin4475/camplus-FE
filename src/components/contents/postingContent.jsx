@@ -2,6 +2,9 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getData } from '../../redux/listDataSlice';
+import { PostingBodyListItem, PostingCommentListItem, PostingTitleListItem } from '../listItem';
+import { PostInputItem } from '../inputItem';
+import { SubmitEventBtn2 } from '../button';
 
 const PostingContent = () => {
   const url = useParams();
@@ -13,7 +16,31 @@ const PostingContent = () => {
     return state.listData.data;
   });
   console.log(listData);
-  return <div />;
+  return (
+    <div>
+      <PostingTitleListItem title={listData.title} />
+      <PostingBodyListItem body={listData.body} />
+      <span>댓글</span>
+      <div>
+        {listData.comment &&
+          listData.comment.map((data) => {
+            return <PostingCommentListItem nickname={data.nickname} comment={data.comment} />;
+          })}
+      </div>
+      <form>
+        <PostInputItem
+          className="py-9 px-8 w-inputItemWidth h-postInputItemHeight border-subColor_grey border-border_md rounded-borderRadius_lg flex justify-start items-center focus"
+          itemType="댓글"
+        />
+        <SubmitEventBtn2
+          text="보내기"
+          submitEvent={() => {
+            console.log(2);
+          }}
+        />
+      </form>
+    </div>
+  );
 };
 
 export default PostingContent;
