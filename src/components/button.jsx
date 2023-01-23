@@ -12,9 +12,26 @@ export const SubmitEventBtn = (props) => {
       type="submit"
       onClick={submitEvent}
     >
-      <span className="font-semibold text-fontSize_md text-fontColor_white">{text}</span>
+      <span className="font-bold text-fontSize_md text-fontColor_white">{text}</span>
     </button>
   );
+};
+
+export const SubmitEventBtn2 = (props) => {
+  const { text, submitEvent } = props;
+  return (
+    <button
+      className=" w-categoryBtnWidth h-2 h-mainBtnHeight bg-mainColor_yellow rounded-borderRadius_sm"
+      type="submit"
+      onClick={submitEvent}
+    >
+      <span className="font-bold text-fontSize_md text-fontColor_white">{text}</span>
+    </button>
+  );
+};
+SubmitEventBtn2.propTypes = {
+  text: PropTypes.string.isRequired,
+  submitEvent: PropTypes.func.isRequired,
 };
 
 export const MainBtn = (props) => {
@@ -25,7 +42,7 @@ export const MainBtn = (props) => {
       type="submit"
       onClick={onClick}
     >
-      <span className="font-semibold text-fontSize_md text-fontColor_white">{text}</span>
+      <span className="font-bold text-fontSize_md text-fontColor_white">{text}</span>
     </button>
   );
 };

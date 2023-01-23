@@ -25,28 +25,31 @@ export const getList = async (id) => {
 };
 
 export const postList = (props) => {
-  const { title, category, location, content } = props;
-  axios.post(
+  const { title, category, location, body } = props;
+  const response = axios.post(
     `${API_BASE_URL}${posts}`,
     {
       title,
       category,
       location,
-      content,
+      body,
     },
     { headers: authHeader() }
   );
+  return response;
 };
 
 export const postComment = (props) => {
-  const { comment } = props;
-  axios.post(
+  const { post, text } = props;
+  const response = axios.post(
     `${API_BASE_URL}${comments}`,
     {
-      comment,
+      post,
+      text,
     },
     { headers: authHeader() }
   );
+  return response;
 };
 
 export const deleteList = (props) => {

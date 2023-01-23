@@ -113,6 +113,15 @@ export const PostInputItem = (props) => {
           onChange={onChange}
         />
       )}
+      {itemType === '댓글' && (
+        <input
+          className="focus:outline-none ml-2 w-auto"
+          required
+          type="text"
+          ref={inputRef}
+          onChange={onChange}
+        />
+      )}
     </div>
   );
 };
