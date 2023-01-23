@@ -24,10 +24,10 @@ const App = () => {
         <Route path="/signup" element={<SignUp />} />
         <Route exact path="/home" element={<Home />}>
           <Route path="/home/:category" element={<Home />} />
-          <Route path="/home/:id" element={<Posting />} />
         </Route>
         <Route path="/post" element={<Post />} />
         <Route path="/mypage" element={<MyPage />} />
+        <Route path="/:id" element={<Posting />} />
       </Routes>
     </div>
   );

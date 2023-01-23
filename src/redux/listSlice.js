@@ -1,39 +1,33 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
-import authHeader from '../services/auth-header';
-
-export const getListData = createAsyncThunk('listSlice/getListData', async (category) => {
-  const res = axios.get(`http://127.0.0.1:8000/posts/?category=${category}`, {
-    headers: authHeader(),
-  });
-  const data = await res.json();
-  return data.value();
-});
+import { getAllList, getCategoryList } from '../services/user.service';
 
 const initialState = {
-  data: undefined,
-  status: '',
+  list: [],
 };
 
-export const listSlice = createSlice({
-  name: 'list',
+export const getListData = createAsyncThunk('list/getListData', async (category) => {
+  if (category === undefined) {
+    const response = await getAllList();
+    return response.data;
+  }
+  const response = await getCategoryList(category);
+  return response.data;
+});
+
+const listsSlice = createSlice({
+  name: 'lists',
   initialState,
   reducers: {},
-  extraReducers: (builder) => {
-    builder.addCase(getListData.pending, (state) => {
+  extraReducers: {
+    [getListData.pending]: (state) => {
       // eslint-disable-next-line no-param-reassign
-      state.status = 'loading';
-    });
-    // value 값을 오브젝트로 받을 수 있게 수정함
-    builder.addCase(getListData.fulfilled, (state, action) => {
+      state.list = [];
+    },
+    [getListData.fulfilled]: (state, action) => {
       // eslint-disable-next-line no-param-reassign
-      state.value = action.payload;
-      // eslint-disable-next-line no-param-reassign
-      state.status = 'Complete';
-    });
-    builder.addCase(getListData.rejected, (state) => {
-      // eslint-disable-next-line no-param-reassign
-      state.status = 'fail';
-    });
+      return { ...state, list: action.payload };
+    },
   },
 });
+
+export default listsSlice.reducer;

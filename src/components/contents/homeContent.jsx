@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Route, Routes, useParams } from 'react-router-dom';
 import { getListData } from '../../redux/listSlice';
 import { CategoryBtnList } from '../listButton';
+import ListItem from '../listItem';
 
 const HomeContent = () => {
   const { category } = useParams();
@@ -11,26 +12,149 @@ const HomeContent = () => {
     dispatch(getListData(category));
   }, [category]);
   const listData = useSelector((state) => {
-    return state.lists.value;
+    return state.lists.list;
   });
-  const status = useSelector((state) => {
-    return state.lists.status;
-  });
+  console.log(category);
   console.log(listData);
-  console.log(status);
 
   return (
     <div className=" h-contentHeight">
       <CategoryBtnList />
       <div className=" h-homeContentHeight">
         <Routes>
-          <Route path="" element={<div>홈화면임</div>} />
-          <Route path="book" element={<div>{category}</div>} />
-          <Route path="charger" element={<div>{category}</div>} />
-          <Route path="calculator" element={<div>{category}</div>} />
-          <Route path="supplies" element={<div>{category}</div>} />
-          <Route path="lost" element={<div>{category}</div>} />
-          <Route path="exception" element={<div>{category}</div>} />
+          <Route
+            path=""
+            element={
+              <div>
+                {listData &&
+                  listData.map((data) => {
+                    return (
+                      <ListItem
+                        pk={data.pk}
+                        title={data.title}
+                        nickname={data.profile.nickname}
+                        category={data.category}
+                        location={data.location}
+                      />
+                    );
+                  })}
+              </div>
+            }
+          />
+          <Route
+            path="book"
+            element={
+              <div>
+                {listData &&
+                  listData.map((data) => {
+                    return (
+                      <ListItem
+                        pk={data.pk}
+                        title={data.title}
+                        nickname={data.profile.nickname}
+                        category={data.category}
+                        location={data.location}
+                      />
+                    );
+                  })}
+              </div>
+            }
+          />
+          <Route
+            path="charger"
+            element={
+              <div>
+                {listData &&
+                  listData.map((data) => {
+                    return (
+                      <ListItem
+                        pk={data.pk}
+                        title={data.title}
+                        nickname={data.profile.nickname}
+                        category={data.category}
+                        location={data.location}
+                      />
+                    );
+                  })}
+              </div>
+            }
+          />
+          <Route
+            path="calculator"
+            element={
+              <div>
+                {listData &&
+                  listData.map((data) => {
+                    return (
+                      <ListItem
+                        pk={data.pk}
+                        title={data.title}
+                        nickname={data.profile.nickname}
+                        category={data.category}
+                        location={data.location}
+                      />
+                    );
+                  })}
+              </div>
+            }
+          />
+          <Route
+            path="supplies"
+            element={
+              <div>
+                {listData &&
+                  listData.map((data) => {
+                    return (
+                      <ListItem
+                        pk={data.pk}
+                        title={data.title}
+                        nickname={data.profile.nickname}
+                        category={data.category}
+                        location={data.location}
+                      />
+                    );
+                  })}
+              </div>
+            }
+          />
+          <Route
+            path="lost"
+            element={
+              <div>
+                {listData &&
+                  listData.map((data) => {
+                    return (
+                      <ListItem
+                        pk={data.pk}
+                        title={data.title}
+                        nickname={data.profile.nickname}
+                        category={data.category}
+                        location={data.location}
+                      />
+                    );
+                  })}
+              </div>
+            }
+          />
+          <Route
+            path="exception"
+            element={
+              <div>
+                {listData &&
+                  listData.map((data) => {
+                    return (
+                      <ListItem
+                        pk={data.pk}
+                        title={data.title}
+                        nickname={data.profile.nickname}
+                        category={data.category}
+                        location={data.location}
+                      />
+                    );
+                  })}
+              </div>
+            }
+          />
         </Routes>
       </div>
     </div>

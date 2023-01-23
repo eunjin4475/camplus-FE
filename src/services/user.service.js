@@ -6,12 +6,16 @@ const API_BASE_URL = 'http://127.0.0.1:8000/';
 const posts = 'posts/';
 const comments = 'comments/';
 
-export const getLists = async (category) => {
-  if (category === null) {
-    const response = await axios.get(`${API_BASE_URL}${posts}`, { headers: authHeader() });
-    return response;
-  }
-  const response = axios.get(`${API_BASE_URL}${posts}${category}`, { headers: authHeader() });
+// 해결완료
+export const getAllList = () => {
+  const response = axios.get(`${API_BASE_URL}${posts}`, { headers: authHeader() });
+  return response;
+};
+
+export const getCategoryList = (category) => {
+  const response = axios.get(`${API_BASE_URL}${posts}?category=${category}`, {
+    headers: authHeader(),
+  });
   return response;
 };
 

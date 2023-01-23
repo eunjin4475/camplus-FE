@@ -1,7 +1,7 @@
-import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { MainBtn, SubmitEventBtn, ExitBtn } from '../button';
+import { login } from '../../services/auth.service';
+import { MainBtn, SubmitEventBtn } from '../button';
 import { InputItem } from '../inputItem';
 /**
  * @추가할것 빈값이 넘어가지 않도록 validation 설정하기
@@ -36,24 +36,13 @@ const SigninContent = () => {
         <SubmitEventBtn
           form="signin"
           text="로그인"
-          submitEvent={(e) => {
+          submitEvent={async (e) => {
             e.preventDefault();
-            axios({
-              method: 'post',
-              url: 'http://127.0.0.1:8000/users/login/',
-              data: {
-                username: account.username,
-                password: account.password,
-              },
-            })
-              .then((res) => {
-                console.log(res.data.token);
-                localStorage.setItem('token', res.data.token);
-              })
-              .then(navigate('/home'))
-              .catch((error) => {
-                console.log(error);
-              });
+            const token = await (await login(account)).data.token;
+            if (token) {
+              localStorage.setItem('token', token);
+              navigate('/home');
+            }
           }}
         />
         <MainBtn
@@ -62,7 +51,6 @@ const SigninContent = () => {
             navigate('/signup');
           }}
         />
-        <ExitBtn />
       </div>
     </div>
   );
