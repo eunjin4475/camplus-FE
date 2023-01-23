@@ -17,7 +17,7 @@ const PostContent = () => {
     <div className="flex flex-col justify-center items-center">
       <form id="post">
         <PostInputItem
-          className=" py-9 px-8 w-inputItemWidth h-postInputItemHeight border-subColor_grey border-border_md rounded-borderRadius_lg flex justify-start items-center focus mt-4"
+          className=" py-9 px-8 w-inputItemWidth h-postInputItemHeight border-subColor_grey border-border_md rounded-borderRadius_sm flex justify-start items-center focus mt-4"
           itemType="제목"
           onChange={(event) => {
             setPostData((prevState) => {
@@ -26,7 +26,7 @@ const PostContent = () => {
           }}
         />
         <PostInputItem
-          className=" py-9 px-8 w-inputItemWidth h-postInputItemHeight border-subColor_grey border-border_md rounded-borderRadius_lg flex justify-start items-center focus mt-4"
+          className=" py-9 px-8 w-inputItemWidth h-postInputItemHeight border-subColor_grey border-border_md rounded-borderRadius_sm flex justify-start items-center focus mt-4"
           itemType="카테고리"
           onChange={(event) => {
             setPostData((prevState) => {
@@ -35,7 +35,7 @@ const PostContent = () => {
           }}
         />
         <PostInputItem
-          className=" py-9 px-8 w-inputItemWidth h-postInputItemHeight border-subColor_grey border-border_md rounded-borderRadius_lg flex justify-start items-center focus mt-4"
+          className=" py-9 px-8 w-inputItemWidth h-postInputItemHeight border-subColor_grey border-border_md rounded-borderRadius_sm flex justify-start items-center focus mt-4"
           itemType="장소"
           onChange={(event) => {
             setPostData((prevState) => {
@@ -44,7 +44,7 @@ const PostContent = () => {
           }}
         />
         <PostInputItem
-          className=" py-9 px-8 w-inputItemWidth h-postInputItemContentHeight border-subColor_grey border-border_md rounded-borderRadius_md flex justify-start items-center focus mt-4"
+          className=" py-9 px-8 w-inputItemWidth h-postInputItemContentHeight border-subColor_grey border-border_md rounded-borderRadius_sm flex justify-start items-center focus mt-4"
           itemType="요청"
           onChange={(event) => {
             setPostData((prevState) => {

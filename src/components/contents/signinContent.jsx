@@ -13,7 +13,7 @@ const SigninContent = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col justify-evenly items-center h-contentHeight">
+    <div className="flex flex-col justify-evenly items-center">
       <form id="signin">
         <InputItem
           itemType="아이디"

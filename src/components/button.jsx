@@ -19,7 +19,7 @@ export const SubmitEventBtn2 = (props) => {
   const { text, submitEvent } = props;
   return (
     <button
-      className=" w-2 h-2 h-mainBtnHeight bg-mainColor_yellow rounded-borderRadius_lg"
+      className=" w-categoryBtnWidth h-2 h-mainBtnHeight bg-mainColor_yellow rounded-borderRadius_sm"
       type="submit"
       onClick={submitEvent}
     >

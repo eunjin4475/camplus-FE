@@ -46,7 +46,7 @@ PostingTitleListItem.propTypes = {
 export const PostingBodyListItem = (props) => {
   const { body } = props;
   return (
-    <div className="p-5 w-inputItemWidth h-postInputItemContentHeight border-subColor_grey border-border_md rounded-borderRadius_sm flex flex-col items-start mb-4">
+    <div className="p-5 w-inputItemWidth h-postingItemContentHeight border-subColor_grey border-border_md rounded-borderRadius_sm flex flex-col items-start mb-4">
       <span className="font-bold text-fontSize_lg text-fontColor_black">요청사항</span>
       <p className="font-semibold text-fontSize_md text-fontColor_black mt-4">{body}</p>
     </div>
@@ -61,7 +61,7 @@ export const PostingCommentListItem = (props) => {
   return (
     <div
       id="inputItem"
-      className="py-9 px-8 w-inputItemWidth h-inputItemHeight border-subColor_grey border-border_md rounded-borderRadius_lg flex justify-start items-center focus mt-4"
+      className="py-9 px-8 w-inputItemWidth h-inputItemHeight border-subColor_grey border-border_md rounded-borderRadius_sm flex justify-start items-center focus mt-4"
     >
       <span className=" text-fontSize_md text-fontColor_Black font-semibold">{nickname}</span>
       <span className=" text-fontSize_lg text-subColor_grey font-semibold ml-2"> : </span>

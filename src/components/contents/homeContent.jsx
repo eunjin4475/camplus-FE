@@ -14,13 +14,11 @@ const HomeContent = () => {
   const listData = useSelector((state) => {
     return state.lists.list;
   });
-  console.log(category);
-  console.log(listData);
 
   return (
-    <div className=" h-contentHeight">
+    <>
       <CategoryBtnList />
-      <div className=" h-homeContentHeight">
+      <div className=" h-homeContentHeight overflow-auto">
         <Routes>
           <Route
             path=""
@@ -157,7 +155,7 @@ const HomeContent = () => {
           />
         </Routes>
       </div>
-    </div>
+    </>
   );
 };
 

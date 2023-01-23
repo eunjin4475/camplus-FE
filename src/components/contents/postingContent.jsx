@@ -10,37 +10,40 @@ import { postComment } from '../../services/user.service';
 const PostingContent = () => {
   const url = useParams();
   const dispatch = useDispatch();
-  const [commentData, setCommentData] = useState('');
+  const [commentData, setCommentData] = useState({
+    post: url.id,
+    text: '',
+  });
   useEffect(() => {
     dispatch(getData(url.id));
   }, [postComment]);
   const listData = useSelector((state) => {
     return state.listData.data;
   });
-  console.log(listData);
   return (
-    <div>
+    <div className="flex flex-col justify-center items-center overflow-auto">
       <PostingTitleListItem title={listData.title} />
       <PostingBodyListItem body={listData.body} />
-      <span>댓글</span>
-      <div>
-        {listData.comment &&
-          listData.comment.map((data) => {
-            return <PostingCommentListItem nickname={data.nickname} comment={data.comment} />;
+      <div className="h-commentHeight overflow-auto mb-4">
+        {listData.comments &&
+          listData.comments.map((data) => {
+            return <PostingCommentListItem nickname={data.profile.nickname} comment={data.text} />;
           })}
       </div>
-      <form className="flex-row flex justify-between items-center">
+      <form className="flex-row w-inputItemWidth flex justify-between items-center">
         <PostInputItem
-          className="py-9 px-8 w-inputItemWidth h-postInputItemHeight border-subColor_grey border-border_md rounded-borderRadius_lg flex justify-start items-center focus"
+          className="py-9 px-8 w-inputItemWidth h-postInputItemHeight border-subColor_grey border-border_md rounded-borderRadius_sm flex justify-start items-center focus"
           itemType="댓글"
           onChange={(event) => {
-            setCommentData(event.target.value);
+            setCommentData((prevState) => {
+              return { ...prevState, text: event.target.value };
+            });
           }}
         />
         <SubmitEventBtn2
           text="보내기"
-          submitEvent={(e) => {
-            e.preventDefault();
+          submitEvent={(event) => {
+            event.preventDefault();
             postComment(commentData);
           }}
         />

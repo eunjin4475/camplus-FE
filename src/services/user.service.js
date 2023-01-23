@@ -40,11 +40,12 @@ export const postList = (props) => {
 };
 
 export const postComment = (props) => {
-  const { comment } = props;
+  const { post, text } = props;
   const response = axios.post(
     `${API_BASE_URL}${comments}`,
     {
-      comment,
+      post,
+      text,
     },
     { headers: authHeader() }
   );
