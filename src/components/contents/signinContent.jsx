@@ -3,17 +3,17 @@ import { useNavigate } from 'react-router-dom';
 import { login } from '../../services/auth.service';
 import { MainBtn, SubmitEventBtn } from '../button';
 import { InputItem } from '../inputItem';
-/**
- * @추가할것 빈값이 넘어가지 않도록 validation 설정하기
- */
+
 const SigninContent = () => {
   const [account, setAccount] = useState({
     username: '',
     password: '',
   });
+  const [isLogin, setIsLogin] = useState(false);
   const navigate = useNavigate();
+
   return (
-    <div className="flex flex-col justify-evenly items-center h-contentHeight">
+    <div className="flex flex-col justify-evenly items-center">
       <form id="signin">
         <InputItem
           itemType="아이디"
@@ -32,17 +32,26 @@ const SigninContent = () => {
           }}
         />
       </form>
+      {isLogin === true && (
+        <span className="font-bold text-fontSize_md text-fontColor_red">
+          값을 정확히 입력해주세요!
+        </span>
+      )}
       <div className=" flex flex-col justify-center items-center">
         <SubmitEventBtn
           form="signin"
           text="로그인"
-          submitEvent={async (e) => {
+          submitEvent={(e) => {
             e.preventDefault();
-            const token = await (await login(account)).data.token;
-            if (token) {
-              localStorage.setItem('token', token);
-              navigate('/home');
-            }
+            const loginResponse = login(account);
+            loginResponse
+              .then((res) => {
+                localStorage.setItem('token', res.data.token);
+                navigate('/home');
+              })
+              .catch(() => {
+                setIsLogin(true);
+              });
           }}
         />
         <MainBtn

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Route, Routes, useParams } from 'react-router-dom';
 import { getListData } from '../../redux/listSlice';
 import { CategoryBtnList } from '../listButton';
-import ListItem from '../listItem';
+import { ListItem } from '../listItem';
 
 const HomeContent = () => {
   const { category } = useParams();
@@ -14,13 +14,11 @@ const HomeContent = () => {
   const listData = useSelector((state) => {
     return state.lists.list;
   });
-  console.log(category);
-  console.log(listData);
 
   return (
-    <div className=" h-contentHeight">
+    <>
       <CategoryBtnList />
-      <div className=" h-homeContentHeight">
+      <div className=" h-homeContentHeight overflow-auto">
         <Routes>
           <Route
             path=""
@@ -157,7 +155,7 @@ const HomeContent = () => {
           />
         </Routes>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -8,26 +8,27 @@ import SignUp from './pages/signup';
 import MyPage from './pages/myPage';
 import Posting from './pages/posting';
 
-const userData = 'userData';
 const App = () => {
+  const token = localStorage.getItem('token');
   const navigate = useNavigate();
   useEffect(() => {
-    const token = localStorage.getItem(userData);
     if (token) {
       navigate('/home');
+    } else {
+      navigate('/');
     }
-  }, []);
+  }, [token]);
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route exact path="/home" element={<Home />}>
-          <Route path="/home/:category" element={<Home />} />
+        <Route exact path="/home" element={<Home token={token} />}>
+          <Route path="/home/:category" element={<Home token={token} />} />
         </Route>
-        <Route path="/post" element={<Post />} />
-        <Route path="/mypage" element={<MyPage />} />
-        <Route path="/:id" element={<Posting />} />
+        <Route path="/post" element={<Post token={token} />} />
+        <Route path="/mypage" element={<MyPage token={token} />} />
+        <Route path="/:id" element={<Posting token={token} />} />
       </Routes>
     </div>
   );

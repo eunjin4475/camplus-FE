@@ -7,24 +7,24 @@ import PostContent from '../components/contents/postContent';
 import { BottomNavBtnList } from '../components/listButton';
 import HomeContent from '../components/contents/homeContent';
 import MyPageContent from '../components/contents/myPageContent';
-import Posting from '../components/contents/postingContent';
+import PostingContent from '../components/contents/postingContent';
 
 const PageTemplate = (props) => {
   const { pagesType } = props;
   return (
-    <div className=" h-height flex flex-col items-center justify-evenly">
-      <div className=" h-headerHeight fixed top-0">
-        <Header pagesType={pagesType} />
+    <div className=" h-height flex flex-col items-center justify-center">
+      <div className="w-full flex flex-col items-center py-10 fixed top-0">
+        <Header />
       </div>
-      <div className=" h-contentHeight">
+      <div className=" w-full flex flex-col items-center justify-center">
         {pagesType === '로그인' && <SigninContent />}
         {pagesType === '회원가입' && <SignupContent />}
         {pagesType === '최근 게시물' && <HomeContent />}
         {pagesType === '글 작성' && <PostContent />}
         {pagesType === '마이페이지' && <MyPageContent />}
-        {pagesType === '게시물' && <Posting />}
+        {pagesType === '게시물' && <PostingContent />}
       </div>
-      <div className=" h-bottomNavBtnHeight fixed bottom-0">
+      <div className=" h-bottomNavBtnHeight w-full bottom-0 fixed">
         <BottomNavBtnList />
       </div>
     </div>
