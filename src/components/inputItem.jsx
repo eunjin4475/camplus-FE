@@ -51,10 +51,10 @@ export const InputItem = (props) => {
         />
       )}
       {itemType === '대학교 선택' && (
-        <input
-          className="focus:outline-none ml-2 w-auto"
+        <dropdown
+          className="text-white bg-blue-700 focus:outline-none font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
           required
-          type="text"
+          type="button"
           ref={inputRef}
           onChange={onChange}
         />
@@ -79,7 +79,7 @@ export const PostInputItem = (props) => {
       <span className=" text-fontSize_lg text-subColor_grey font-semibold ml-2"> : </span>
       {itemType === '제목' && (
         <input
-          className="focus:outline-none ml-2 w-auto"
+          className="focus:outline-none ml-2 w-150"
           required
           type="text"
           ref={inputRef}
@@ -106,7 +106,7 @@ export const PostInputItem = (props) => {
       )}
       {itemType === '요청' && (
         <input
-          className="focus:outline-none ml-2 w-auto"
+          className="flex focus:outline-none ml-2 "
           required
           type="text"
           ref={inputRef}
