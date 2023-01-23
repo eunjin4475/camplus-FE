@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
+import arrow from '../src_asset/Arrow.png';
 
 export const SubmitEventBtn = (props) => {
   const { text, submitEvent, form } = props;
@@ -52,6 +54,35 @@ export const CategoryBtn = (props) => {
     </button>
   );
 };
+// 뒤로가기 버튼
+export const ExitBtn = () => {
+  const navigate = useNavigate();
+  return (
+    <button
+      className="justify-around items-center"
+      type="button"
+      onClick={() => {
+        navigate('/home');
+      }}
+    >
+      <img className=" w-16.32 h-16.32 " src={arrow} alt="outbtn" />
+    </button>
+  );
+};
+
+// 대학교 선택 버튼
+export const UniversityBtn = (props) => {
+  const { text, onClick } = props;
+  return (
+    <button
+      className="w-categoryBtnWidth h-categoryBtnHeight text-fontSize_sm bg-categoryBtnColor_grey rounded-borderRadius_lg mr-4"
+      type="button"
+      onClick={onClick}
+    >
+      {text}
+    </button>
+  );
+};
 
 SubmitEventBtn.propTypes = {
   form: PropTypes.string.isRequired,
@@ -70,6 +101,11 @@ BottomNavBtn.propTypes = {
 };
 
 CategoryBtn.propTypes = {
+  text: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+};
+
+UniversityBtn.propTypes = {
   text: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
 };

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { MainBtn, SubmitEventBtn } from '../button';
+import { MainBtn, SubmitEventBtn, ExitBtn } from '../button';
 import { InputItem } from '../inputItem';
 /**
  * @추가할것 빈값이 넘어가지 않도록 validation 설정하기
@@ -62,6 +62,7 @@ const SigninContent = () => {
             navigate('/signup');
           }}
         />
+        <ExitBtn />
       </div>
     </div>
   );
