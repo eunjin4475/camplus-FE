@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { signup } from '../../services/auth.service';
-import { SubmitEventBtn } from '../button';
-import { InputItem } from '../inputItem';
+import { MainBtn } from '../button';
+import InputItem from '../inputItem';
 
 const SignupContent = () => {
   const navigate = useNavigate();
@@ -25,6 +25,7 @@ const SignupContent = () => {
             });
           }}
           placeHolder="qwert12345"
+          className="py-9 px-8 w-inputItemWidth h-inputItemHeight border-subColor_grey border-border_md rounded-borderRadius_lg flex justify-start items-center focus mt-4"
         />
         <InputItem
           itemType="닉네임"
@@ -34,6 +35,7 @@ const SignupContent = () => {
             });
           }}
           placeHolder="홍길동"
+          className="py-9 px-8 w-inputItemWidth h-inputItemHeight border-subColor_grey border-border_md rounded-borderRadius_lg flex justify-start items-center focus mt-4"
         />
         <InputItem
           itemType="비밀번호"
@@ -43,6 +45,7 @@ const SignupContent = () => {
             });
           }}
           placeHolder="문자+숫자+8자리 이상"
+          className="py-9 px-8 w-inputItemWidth h-inputItemHeight border-subColor_grey border-border_md rounded-borderRadius_lg flex justify-start items-center focus mt-4"
         />
         <InputItem
           itemType="비밀번호 확인"
@@ -52,6 +55,7 @@ const SignupContent = () => {
             });
           }}
           placeHolder="동일하게 입력"
+          className="py-9 px-8 w-inputItemWidth h-inputItemHeight border-subColor_grey border-border_md rounded-borderRadius_lg flex justify-start items-center focus mt-4"
         />
         {/* 대학교 선택은 아이템 선택을 통해서 state 변경을 해주는 식으로 함. */}
         <InputItem
@@ -61,12 +65,16 @@ const SignupContent = () => {
               return { ...prevState, university: event.target.value };
             });
           }}
+          className="py-9 px-8 w-inputItemWidth h-inputItemHeight border-subColor_grey border-border_md rounded-borderRadius_lg flex justify-start items-center focus mt-4"
         />
-        <SubmitEventBtn
+        <MainBtn
           form="signup"
           text="작성완료"
-          submitEvent={(e) => {
-            e.preventDefault();
+          type="submit"
+          buttonClassName="w-mainBtnWidth h-mainBtnHeight bg-mainColor_yellow px-48 py-4 rounded-borderRadius_lg mt-4"
+          spanClassName="font-bold text-fontSize_md text-fontColor_white"
+          onClick={(event) => {
+            event.preventDefault();
             const signupResponse = signup(signupData);
             signupResponse
               .then(() => {
@@ -89,7 +97,6 @@ const SignupContent = () => {
           }}
         />
       </form>
-      <div className=" flex flex-col justify-center items-center" />
     </div>
   );
 };
