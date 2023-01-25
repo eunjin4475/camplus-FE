@@ -17,17 +17,22 @@ const PostingContent = () => {
   useEffect(() => {
     dispatch(getData(url.id));
   }, [postComment]);
-  const listData = useSelector((state) => {
+  const singleListData = useSelector((state) => {
     return state.listData.data;
   });
   return (
     <div className="flex flex-col justify-center items-center overflow-auto">
-      <PostingTitleListItem title={listData.title} />
-      <PostingBodyListItem body={listData.body} />
+      <PostingTitleListItem title={singleListData.title} />
+      <PostingBodyListItem body={singleListData.body} />
       <div className="h-commentHeight overflow-auto mb-4">
-        {listData.comments &&
-          listData.comments.map((data) => {
-            return <PostingCommentListItem nickname={data.profile.nickname} comment={data.text} />;
+        {singleListData.comments &&
+          singleListData.comments.map((singleListDataComment) => {
+            return (
+              <PostingCommentListItem
+                nickname={singleListDataComment.profile.nickname}
+                comment={singleListDataComment.text}
+              />
+            );
           })}
       </div>
       <form className="flex-row w-inputItemWidth flex justify-between items-center">

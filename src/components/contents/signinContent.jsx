@@ -5,7 +5,7 @@ import { MainBtn, SubmitEventBtn } from '../button';
 import { InputItem } from '../inputItem';
 
 const SigninContent = () => {
-  const [account, setAccount] = useState({
+  const [signinData, setSigninData] = useState({
     username: '',
     password: '',
   });
@@ -18,7 +18,7 @@ const SigninContent = () => {
         <InputItem
           itemType="아이디"
           onChange={(event) => {
-            setAccount((prevState) => {
+            setSigninData((prevState) => {
               return { ...prevState, username: event.target.value };
             });
           }}
@@ -26,7 +26,7 @@ const SigninContent = () => {
         <InputItem
           itemType="비밀번호"
           onChange={(event) => {
-            setAccount((prevState) => {
+            setSigninData((prevState) => {
               return { ...prevState, password: event.target.value };
             });
           }}
@@ -43,7 +43,7 @@ const SigninContent = () => {
           text="로그인"
           submitEvent={(e) => {
             e.preventDefault();
-            const loginResponse = login(account);
+            const loginResponse = login(signinData);
             loginResponse
               .then((res) => {
                 localStorage.setItem('token', res.data.token);
