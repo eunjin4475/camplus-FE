@@ -3,8 +3,8 @@ import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getData } from '../../redux/listDataSlice';
 import { PostingBodyListItem, PostingCommentListItem, PostingTitleListItem } from '../listItem';
-import { PostInputItem } from '../inputItem';
-import { SubmitEventBtn2 } from '../button';
+import InputItem from '../inputItem';
+import { MainBtn } from '../button';
 import { postComment } from '../../services/user.service';
 
 const PostingContent = () => {
@@ -17,21 +17,26 @@ const PostingContent = () => {
   useEffect(() => {
     dispatch(getData(url.id));
   }, [postComment]);
-  const listData = useSelector((state) => {
+  const singleListData = useSelector((state) => {
     return state.listData.data;
   });
   return (
     <div className="flex flex-col justify-center items-center overflow-auto">
-      <PostingTitleListItem title={listData.title} />
-      <PostingBodyListItem body={listData.body} />
+      <PostingTitleListItem title={singleListData.title} />
+      <PostingBodyListItem body={singleListData.body} />
       <div className="h-commentHeight overflow-auto mb-4">
-        {listData.comments &&
-          listData.comments.map((data) => {
-            return <PostingCommentListItem nickname={data.profile.nickname} comment={data.text} />;
+        {singleListData.comments &&
+          singleListData.comments.map((singleListDataComment) => {
+            return (
+              <PostingCommentListItem
+                nickname={singleListDataComment.author.nickname}
+                comment={singleListDataComment.text}
+              />
+            );
           })}
       </div>
       <form className="flex-row w-inputItemWidth flex justify-between items-center">
-        <PostInputItem
+        <InputItem
           className="py-9 px-8 w-inputItemWidth h-postInputItemHeight border-subColor_grey border-border_md rounded-borderRadius_sm flex justify-start items-center focus"
           itemType="댓글"
           onChange={(event) => {
@@ -39,13 +44,17 @@ const PostingContent = () => {
               return { ...prevState, text: event.target.value };
             });
           }}
+          placeHolder="댓글을 입력하세요."
         />
-        <SubmitEventBtn2
+        <MainBtn
           text="보내기"
-          submitEvent={(event) => {
+          type="submit"
+          onClick={(event) => {
             event.preventDefault();
             postComment(commentData);
           }}
+          buttonClassName=" w-categoryBtnWidth h-2 h-mainBtnHeight bg-mainColor_yellow rounded-borderRadius_sm"
+          spanClassName="font-bold text-fontSize_md text-fontColor_white"
         />
       </form>
     </div>

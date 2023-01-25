@@ -16,14 +16,14 @@ export const login = (prop) => {
 };
 
 export const logout = () => {
-  localStorage.removeItem('user');
+  localStorage.removeItem('userData');
 };
 
 export const signup = (props) => {
   const { username, nickname, password, password2, university } = props;
   const response = axios({
     method: 'post',
-    url: `${API_BASE_URL}/users/register/`,
+    url: `${API_BASE_URL}users/register/`,
     data: {
       username,
       nickname,

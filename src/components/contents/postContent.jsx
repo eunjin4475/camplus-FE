@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { postList } from '../../services/user.service';
-import { SubmitEventBtn } from '../button';
-import { PostInputItem } from '../inputItem';
+import { MainBtn } from '../button';
+import InputItem from '../inputItem';
 
 const PostContent = () => {
   const navigate = useNavigate();
@@ -12,11 +12,10 @@ const PostContent = () => {
     location: '',
     body: '',
   });
-  console.log(postData);
   return (
     <div className="flex flex-col justify-center items-center">
       <form id="post">
-        <PostInputItem
+        <InputItem
           className=" py-9 px-8 w-inputItemWidth h-postInputItemHeight border-subColor_grey border-border_md rounded-borderRadius_sm flex justify-start items-center focus mt-4"
           itemType="제목"
           onChange={(event) => {
@@ -25,7 +24,7 @@ const PostContent = () => {
             });
           }}
         />
-        <PostInputItem
+        <InputItem
           className=" py-9 px-8 w-inputItemWidth h-postInputItemHeight border-subColor_grey border-border_md rounded-borderRadius_sm flex justify-start items-center focus mt-4"
           itemType="카테고리"
           onChange={(event) => {
@@ -34,7 +33,7 @@ const PostContent = () => {
             });
           }}
         />
-        <PostInputItem
+        <InputItem
           className=" py-9 px-8 w-inputItemWidth h-postInputItemHeight border-subColor_grey border-border_md rounded-borderRadius_sm flex justify-start items-center focus mt-4"
           itemType="장소"
           onChange={(event) => {
@@ -43,7 +42,7 @@ const PostContent = () => {
             });
           }}
         />
-        <PostInputItem
+        <InputItem
           className=" py-9 px-8 w-inputItemWidth h-postInputItemContentHeight border-subColor_grey border-border_md rounded-borderRadius_sm flex justify-start items-center focus mt-4"
           itemType="요청"
           onChange={(event) => {
@@ -54,10 +53,13 @@ const PostContent = () => {
         />
       </form>
       <div>
-        <SubmitEventBtn
+        <MainBtn
           form="post"
           text="작성완료"
-          submitEvent={(e) => {
+          type="submit"
+          buttonClassName="w-mainBtnWidth h-mainBtnHeight bg-mainColor_yellow px-48 py-4 rounded-borderRadius_lg mt-4"
+          spanClassName="font-bold text-fontSize_md text-fontColor_white"
+          onClick={(e) => {
             e.preventDefault();
             const postResponse = postList(postData);
             postResponse

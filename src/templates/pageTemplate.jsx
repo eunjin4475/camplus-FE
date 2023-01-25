@@ -4,7 +4,7 @@ import Header from '../components/header';
 import SigninContent from '../components/contents/signinContent';
 import SignupContent from '../components/contents/signupContent';
 import PostContent from '../components/contents/postContent';
-import { BottomNavBtnList } from '../components/listButton';
+import { BottomNavBtnList } from '../components/buttonList';
 import HomeContent from '../components/contents/homeContent';
 import MyPageContent from '../components/contents/myPageContent';
 import PostingContent from '../components/contents/postingContent';
