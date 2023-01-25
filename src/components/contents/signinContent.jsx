@@ -53,7 +53,7 @@ const SigninContent = () => {
             const loginResponse = login(signinData);
             loginResponse
               .then((res) => {
-                localStorage.setItem('token', res.data.token);
+                localStorage.setItem('userData', JSON.stringify(res.data));
                 navigate('/home');
               })
               .catch(() => {

@@ -3,7 +3,7 @@ import axios from 'axios';
 import authHeader from './auth-header';
 
 const API_BASE_URL = 'http://127.0.0.1:8000/';
-const posts = 'posts/';
+const posts = 'post/';
 const comments = 'comments/';
 
 // 해결완료
@@ -19,15 +19,20 @@ export const getCategoryList = (category) => {
   return response;
 };
 
-export const getList = async (id) => {
-  const response = await axios.get(`${API_BASE_URL}${posts}${id}`, { headers: authHeader() });
+export const getList = (id) => {
+  const response = axios.get(`${API_BASE_URL}${posts}${id}`, { headers: authHeader() });
+  return response;
+};
+
+export const myList = () => {
+  const response = axios.get(`${API_BASE_URL}mypage/`, { headers: authHeader() });
   return response;
 };
 
 export const postList = (props) => {
   const { title, category, location, body } = props;
   const response = axios.post(
-    `${API_BASE_URL}${posts}`,
+    `${API_BASE_URL}${posts}create/`,
     {
       title,
       category,

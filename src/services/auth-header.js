@@ -1,8 +1,8 @@
 const authHeader = () => {
-  const token = localStorage.getItem('token');
+  const userData = JSON.parse(localStorage.getItem('userData'));
 
-  if (token) {
-    return { Authorization: `Token ${token}` };
+  if (userData.token) {
+    return { Authorization: `Token ${userData.token}` };
   }
   return {};
 };

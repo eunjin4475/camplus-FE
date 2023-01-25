@@ -34,21 +34,21 @@ export const CategoryBtnList = () => {
         text="학생용품"
         onClick={(event) => {
           event.preventDefault();
-          navigate('supplies');
+          navigate('student product');
         }}
       />
       <CategoryBtn
         text="분실물"
         onClick={(event) => {
           event.preventDefault();
-          navigate('lost');
+          navigate('lost item');
         }}
       />
       <CategoryBtn
         text="그 외"
         onClick={(event) => {
           event.preventDefault();
-          navigate('exception');
+          navigate('etx');
         }}
       />
     </div>

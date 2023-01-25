@@ -14,7 +14,7 @@ const HomeContent = () => {
   const listData = useSelector((state) => {
     return state.lists.list;
   });
-
+  console.log(listData);
   return (
     <>
       <CategoryBtnList />
@@ -30,7 +30,7 @@ const HomeContent = () => {
                       <ListItem
                         pk={data.pk}
                         title={data.title}
-                        nickname={data.profile.nickname}
+                        nickname={data.author.nickname}
                         category={data.category}
                         location={data.location}
                       />
@@ -49,7 +49,7 @@ const HomeContent = () => {
                       <ListItem
                         pk={data.pk}
                         title={data.title}
-                        nickname={data.profile.nickname}
+                        nickname={data.author.nickname}
                         category={data.category}
                         location={data.location}
                       />
@@ -68,7 +68,7 @@ const HomeContent = () => {
                       <ListItem
                         pk={data.pk}
                         title={data.title}
-                        nickname={data.profile.nickname}
+                        nickname={data.author.nickname}
                         category={data.category}
                         location={data.location}
                       />
@@ -87,7 +87,7 @@ const HomeContent = () => {
                       <ListItem
                         pk={data.pk}
                         title={data.title}
-                        nickname={data.profile.nickname}
+                        nickname={data.author.nickname}
                         category={data.category}
                         location={data.location}
                       />
@@ -97,7 +97,7 @@ const HomeContent = () => {
             }
           />
           <Route
-            path="supplies"
+            path="student product"
             element={
               <div>
                 {listData &&
@@ -106,7 +106,7 @@ const HomeContent = () => {
                       <ListItem
                         pk={data.pk}
                         title={data.title}
-                        nickname={data.profile.nickname}
+                        nickname={data.author.nickname}
                         category={data.category}
                         location={data.location}
                       />
@@ -116,7 +116,7 @@ const HomeContent = () => {
             }
           />
           <Route
-            path="lost"
+            path="lost item"
             element={
               <div>
                 {listData &&
@@ -125,7 +125,7 @@ const HomeContent = () => {
                       <ListItem
                         pk={data.pk}
                         title={data.title}
-                        nickname={data.profile.nickname}
+                        nickname={data.author.nickname}
                         category={data.category}
                         location={data.location}
                       />
@@ -135,7 +135,7 @@ const HomeContent = () => {
             }
           />
           <Route
-            path="exception"
+            path="etx"
             element={
               <div>
                 {listData &&
@@ -144,7 +144,7 @@ const HomeContent = () => {
                       <ListItem
                         pk={data.pk}
                         title={data.title}
-                        nickname={data.profile.nickname}
+                        nickname={data.author.nickname}
                         category={data.category}
                         location={data.location}
                       />
