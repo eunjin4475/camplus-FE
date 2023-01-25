@@ -1,6 +1,5 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import { BottomNavBtn, CategoryBtn } from './button';
 import house from '../src_asset/House.png';
 import plus from '../src_asset/Plus.png';

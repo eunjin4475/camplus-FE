@@ -10,7 +10,7 @@ export const InputItem = (props) => {
   return (
     <div
       id="inputItem"
-      className="py-9 px-8 w-inputItemWidth h-inputItemHeight border-subColor_grey border-border_md rounded-borderRadius_lg flex justify-start items-center focus mt-4"
+      className="py-9 px-8 w-inputItemWidth h-inputItemHeight border-subColor_grey border-border_md rounded-borderRadius_lg flex items-center focus mt-4"
     >
       <span className=" text-fontSize_md text-fontColor_Black font-semibold">{itemType}</span>
       <span className=" text-fontSize_lg text-subColor_grey font-semibold ml-2"> : </span>
@@ -51,10 +51,10 @@ export const InputItem = (props) => {
         />
       )}
       {itemType === '대학교 선택' && (
-        <dropdown
-          className="text-white bg-blue-700 focus:outline-none font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
+        <input
+          className="focus:outline-none ml-2 w-full"
           required
-          type="button"
+          type="text"
           ref={inputRef}
           onChange={onChange}
         />

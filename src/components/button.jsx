@@ -76,13 +76,13 @@ export const ExitBtn = () => {
   const navigate = useNavigate();
   return (
     <button
-      className="justify-around items-center"
+      className="justify-around items-center absolute left-0 top-0 h-16 w-16"
       type="button"
       onClick={() => {
         navigate('/home');
       }}
     >
-      <img className=" w-16.32 h-16.32 " src={arrow} alt="outbtn" />
+      <img className=" relative w-16.32 h-16.32 " src={arrow} alt="outbtn" />
     </button>
   );
 };

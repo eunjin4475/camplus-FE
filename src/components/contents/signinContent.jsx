@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { login } from '../../services/auth.service';
-import { MainBtn, SubmitEventBtn } from '../button';
+import { ExitBtn, MainBtn, SubmitEventBtn } from '../button';
 import { InputItem } from '../inputItem';
 
 const SigninContent = () => {
@@ -14,6 +14,7 @@ const SigninContent = () => {
 
   return (
     <div className="flex flex-col justify-evenly items-center">
+      <ExitBtn />
       <form id="signin">
         <InputItem
           itemType="아이디"
