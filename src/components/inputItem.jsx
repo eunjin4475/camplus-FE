@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 export const InputItem = (props) => {
-  const { itemType, onChange } = props;
+  const { itemType, onChange, placeHolder } = props;
   const inputRef = useRef(null);
   useEffect(() => {
     inputRef.current.focus();
@@ -21,6 +21,7 @@ export const InputItem = (props) => {
           type="text"
           ref={inputRef}
           onChange={onChange}
+          placeholder={placeHolder}
         />
       )}
       {itemType === '아이디' && (
@@ -30,6 +31,7 @@ export const InputItem = (props) => {
           type="text"
           ref={inputRef}
           onChange={onChange}
+          placeholder={placeHolder}
         />
       )}
       {itemType === '비밀번호' && (
@@ -39,6 +41,7 @@ export const InputItem = (props) => {
           type="password"
           ref={inputRef}
           onChange={onChange}
+          placeholder={placeHolder}
         />
       )}
       {itemType === '비밀번호 확인' && (
@@ -48,13 +51,14 @@ export const InputItem = (props) => {
           type="password"
           ref={inputRef}
           onChange={onChange}
+          placeholder={placeHolder}
         />
       )}
       {itemType === '대학교 선택' && (
-        <dropdown
-          className="text-white bg-blue-700 focus:outline-none font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
+        <input
+          className="focus:outline-none ml-2 w-auto"
           required
-          type="button"
+          type="text"
           ref={inputRef}
           onChange={onChange}
         />
@@ -65,6 +69,7 @@ export const InputItem = (props) => {
 InputItem.propTypes = {
   itemType: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
+  placeHolder: PropTypes.string.isRequired,
 };
 
 export const PostInputItem = (props) => {

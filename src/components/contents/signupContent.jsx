@@ -24,6 +24,7 @@ const SignupContent = () => {
               return { ...prevState, username: event.target.value };
             });
           }}
+          placeHolder="qwert12345"
         />
         <InputItem
           itemType="닉네임"
@@ -32,6 +33,7 @@ const SignupContent = () => {
               return { ...prevState, nickname: event.target.value };
             });
           }}
+          placeHolder="홍길동"
         />
         <InputItem
           itemType="비밀번호"
@@ -40,6 +42,7 @@ const SignupContent = () => {
               return { ...prevState, password: event.target.value };
             });
           }}
+          placeHolder="문자+숫자+8자리 이상"
         />
         <InputItem
           itemType="비밀번호 확인"
@@ -48,6 +51,7 @@ const SignupContent = () => {
               return { ...prevState, password2: event.target.value };
             });
           }}
+          placeHolder="동일하게 입력"
         />
         {/* 대학교 선택은 아이템 선택을 통해서 state 변경을 해주는 식으로 함. */}
         <InputItem
