@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Route, Routes, useParams } from 'react-router-dom';
 import { getListData } from '../../redux/listSlice';
-import { CategoryBtnList } from '../listButton';
+import { CategoryBtnList } from '../buttonList';
 import { ListItem } from '../listItem';
 
 const HomeContent = () => {

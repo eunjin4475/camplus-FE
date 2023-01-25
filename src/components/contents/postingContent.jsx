@@ -3,8 +3,8 @@ import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getData } from '../../redux/listDataSlice';
 import { PostingBodyListItem, PostingCommentListItem, PostingTitleListItem } from '../listItem';
-import { PostInputItem } from '../inputItem';
-import { SubmitEventBtn2 } from '../button';
+import InputItem from '../inputItem';
+import { MainBtn } from '../button';
 import { postComment } from '../../services/user.service';
 
 const PostingContent = () => {
@@ -36,7 +36,7 @@ const PostingContent = () => {
           })}
       </div>
       <form className="flex-row w-inputItemWidth flex justify-between items-center">
-        <PostInputItem
+        <InputItem
           className="py-9 px-8 w-inputItemWidth h-postInputItemHeight border-subColor_grey border-border_md rounded-borderRadius_sm flex justify-start items-center focus"
           itemType="댓글"
           onChange={(event) => {
@@ -44,13 +44,17 @@ const PostingContent = () => {
               return { ...prevState, text: event.target.value };
             });
           }}
+          placeHolder="댓글을 입력하세요."
         />
-        <SubmitEventBtn2
+        <MainBtn
           text="보내기"
-          submitEvent={(event) => {
+          type="submit"
+          onClick={(event) => {
             event.preventDefault();
             postComment(commentData);
           }}
+          buttonClassName=" w-categoryBtnWidth h-2 h-mainBtnHeight bg-mainColor_yellow rounded-borderRadius_sm"
+          spanClassName="font-bold text-fontSize_md text-fontColor_white"
         />
       </form>
     </div>

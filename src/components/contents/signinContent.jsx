@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { login } from '../../services/auth.service';
-import { MainBtn, SubmitEventBtn } from '../button';
-import { InputItem } from '../inputItem';
+import { MainBtn } from '../button';
+import InputItem from '../inputItem';
 
 const SigninContent = () => {
   const [signinData, setSigninData] = useState({
@@ -22,6 +22,8 @@ const SigninContent = () => {
               return { ...prevState, username: event.target.value };
             });
           }}
+          placeHolder="아이디를 입력하세요."
+          className="py-9 px-8 w-inputItemWidth h-inputItemHeight border-subColor_grey border-border_md rounded-borderRadius_lg flex justify-start items-center focus mt-4"
         />
         <InputItem
           itemType="비밀번호"
@@ -30,6 +32,8 @@ const SigninContent = () => {
               return { ...prevState, password: event.target.value };
             });
           }}
+          placeHolder="비밀번호를 입력하세요."
+          className="py-9 px-8 w-inputItemWidth h-inputItemHeight border-subColor_grey border-border_md rounded-borderRadius_lg flex justify-start items-center focus mt-4"
         />
       </form>
       {isLogin === true && (
@@ -38,10 +42,13 @@ const SigninContent = () => {
         </span>
       )}
       <div className=" flex flex-col justify-center items-center">
-        <SubmitEventBtn
+        <MainBtn
           form="signin"
           text="로그인"
-          submitEvent={(e) => {
+          type="submit"
+          buttonClassName="w-mainBtnWidth h-mainBtnHeight bg-mainColor_yellow px-48 py-4 rounded-borderRadius_lg mt-4"
+          spanClassName="font-bold text-fontSize_md text-fontColor_white"
+          onClick={(e) => {
             e.preventDefault();
             const loginResponse = login(signinData);
             loginResponse
@@ -56,9 +63,12 @@ const SigninContent = () => {
         />
         <MainBtn
           text="회원가입"
+          type="button"
           onClick={() => {
             navigate('/signup');
           }}
+          buttonClassName="w-mainBtnWidth h-mainBtnHeight bg-mainColor_yellow px-48 py-4 rounded-borderRadius_lg mt-4"
+          spanClassName="font-bold text-fontSize_md text-fontColor_white"
         />
       </div>
     </div>
