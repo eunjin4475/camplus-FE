@@ -39,10 +39,11 @@ BottomNavBtn.propTypes = {
 };
 
 export const CategoryBtn = (props) => {
-  const { text, onClick } = props;
+  const { id, text, onClick } = props;
   return (
     <button
-      className="w-categoryBtnWidth h-categoryBtnHeight text-fontSize_sm bg-categoryBtnColor_grey rounded-borderRadius_lg mr-4"
+      id={id}
+      className="w-categoryBtnWidth h-categoryBtnHeight text-fontSize_sm bg-categoryColor rounded-borderRadius_lg mr-4"
       type="button"
       onClick={onClick}
     >
@@ -51,6 +52,7 @@ export const CategoryBtn = (props) => {
   );
 };
 CategoryBtn.propTypes = {
+  id: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
 };

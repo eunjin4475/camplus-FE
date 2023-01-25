@@ -14,7 +14,6 @@ const HomeContent = () => {
   const listData = useSelector((state) => {
     return state.lists.list;
   });
-  console.log(listData);
   return (
     <>
       <CategoryBtnList />
