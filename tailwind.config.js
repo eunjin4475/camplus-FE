@@ -3,14 +3,15 @@ module.exports = {
   content: ['./src/**/*.{html,js,jsx}'],
   theme: {
     colors: {
-      mainColor_yellow: '#FFB600',
-      subColor_grey: '#D9D9D9',
-      backgroudColor_white: '#F5F5F5',
-      fontColor_black: '#000000',
-      fontColor_grey: '#505050',
-      fontColor_white: '#FFFFFF',
-      fontColor_red: '#F60001',
-      categoryBtnColor_grey: '#F0F0F0',
+      mainColor: '#FFB600',
+      subColor: '#D9D9D9',
+
+      textColor_black: '#000000',
+      textColor_grey: '#505050',
+      textColor_white: '#FFFFFF',
+      textColor_red: '#F60001',
+
+      categoryColor: '#F0F0F0',
     },
     borderWidth: {
       border_md: '3px',
@@ -18,7 +19,9 @@ module.exports = {
     width: {
       full: '100%',
       logoWidth: '217px',
-      inputItemWidth: '920px',
+
+      ItemWidth: '920px',
+
       mainBtnWidth: '450px',
       categoryBtnWidth: '112px',
       bottomNavBtnImgWidth: '35px',
@@ -26,18 +29,22 @@ module.exports = {
     height: {
       height: '100vh',
       logoHeight: '35px',
+
+      postItemHeight: '72px',
       inputItemHeight: '93px',
+      commentItemHeight: '93px',
       listItemHeight: '131px',
-      postInputItemHeight: '72px',
-      postInputItemContentHeight: '265px',
-      postingItemContentHeight: '200px',
+      postItemBodyHeight: '200px',
+
       mainBtnHeight: '75px',
       categoryBtnHeight: '45px',
-      homeContentHeight: '70vh',
-      commentHeight: '30vh',
-      categoryBtnListHeight: '8vh',
-      bottomNavBtnHeight: '6vh',
       bottomNavBtnImgHeight: '35px',
+
+      homeContentHeight: '70vh',
+      signupContentHeight: '60vh',
+      commentHeight: '30vh',
+      bottomNavBtnListHeight: '6vh',
+      categoryBtnListHeight: '8vh',
     },
     borderRadius: {
       borderRadius_sm: '20px',

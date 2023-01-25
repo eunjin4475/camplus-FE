@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { BottomNavBtn, CategoryBtn } from './button';
 import house from '../src_asset/House.png';
 import plus from '../src_asset/Plus.png';
@@ -53,6 +54,21 @@ export const CategoryBtnList = () => {
       />
     </div>
   );
+};
+
+export const UnivBtn = (props) => {
+  const { onClick } = props;
+  return (
+    <div className="flex h-categoryBtnListHeight items-center">
+      <CategoryBtn id="soongsil" text="숭실대" onClick={onClick} />
+      <CategoryBtn id="dongduk" text="동덕여대" onClick={onClick} />
+      <CategoryBtn id="sungshin" text="성신여대" onClick={onClick} />
+      <CategoryBtn id="hanyang" text="한양대" onClick={onClick} />
+    </div>
+  );
+};
+UnivBtn.propTypes = {
+  onClick: PropTypes.func.isRequired,
 };
 
 export const BottomNavBtnList = () => {

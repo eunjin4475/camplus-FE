@@ -35,9 +35,9 @@ const PostingContent = () => {
             );
           })}
       </div>
-      <form className="flex-row w-inputItemWidth flex justify-between items-center">
+      <form className="flex-row w-ItemWidth flex justify-between items-center">
         <InputItem
-          className="py-9 px-8 w-inputItemWidth h-postInputItemHeight border-subColor_grey border-border_md rounded-borderRadius_sm flex justify-start items-center focus"
+          className="py-9 px-8 w-ItemWidth h-postItemHeight border-subColor border-border_md rounded-borderRadius_sm flex justify-start items-center focus"
           itemType="댓글"
           onChange={(event) => {
             setCommentData((prevState) => {
@@ -53,8 +53,8 @@ const PostingContent = () => {
             event.preventDefault();
             postComment(commentData);
           }}
-          buttonClassName=" w-categoryBtnWidth h-2 h-mainBtnHeight bg-mainColor_yellow rounded-borderRadius_sm"
-          spanClassName="font-bold text-fontSize_md text-fontColor_white"
+          buttonClassName=" w-categoryBtnWidth h-postItemHeight bg-mainColor rounded-borderRadius_sm"
+          spanClassName="font-bold text-fontSize_md text-textColor_white"
         />
       </form>
     </div>
