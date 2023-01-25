@@ -20,16 +20,17 @@ export const logout = () => {
 };
 
 export const signup = (props) => {
-  const { username, nickname, password, password2, university } = props;
+  const { username, nickname, password, password2, university, email } = props;
   const response = axios({
     method: 'post',
-    url: `${API_BASE_URL}/users/register/`,
+    url: `${API_BASE_URL}users/register/`,
     data: {
       username,
       nickname,
       password,
       password2,
       university,
+      email,
     },
   });
   return response;

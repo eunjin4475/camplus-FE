@@ -7,16 +7,16 @@ export const ListItem = (props) => {
   const { pk, title, nickname, category, location } = props;
   return (
     <div
-      className="w-inputItemWidth h-listItemHeight border-subColor_grey border-border_md rounded-borderRadius_sm flex flex-col justify-start items-start mb-3 cursor-pointer"
+      className="w-ItemWidth h-listItemHeight border-subColor border-border_md rounded-borderRadius_sm flex flex-col justify-start items-start mb-3 cursor-pointer"
       aria-hidden="true"
       onClick={() => {
         navigate(`/${pk}`);
       }}
     >
       <div className=" py-6 px-6 flex flex-col items-start justify-center">
-        <span className="text-fontSize_lg text-fontColor_black font-bold">{title}!</span>
-        <span className="text-fontSize_ssm text-fontColor_grey">{nickname}</span>
-        <span className="text-fontSize_sm text-fontColor_grey">
+        <span className="text-fontSize_lg text-textColor_black font-bold">{title}!</span>
+        <span className="text-fontSize_sm text-textColor_grey">{nickname}</span>
+        <span className="text-fontSize_sm text-textColor_grey">
           #{category} #{location} 앞
         </span>
       </div>
@@ -34,8 +34,8 @@ ListItem.propTypes = {
 export const PostingTitleListItem = (props) => {
   const { title } = props;
   return (
-    <div className=" p-5 w-inputItemWidth h-postInputItemHeight border-subColor_grey border-border_md rounded-borderRadius_sm flex justify-start mb-4">
-      <span className="font-semibold text-fontSize_md text-fontColor_black">{title}</span>
+    <div className=" p-5 w-ItemWidth h-postInputItemHeight border-subColor border-border_md rounded-borderRadius_sm flex justify-start mb-4">
+      <span className="font-semibold text-fontSize_md text-textColor_black">{title}</span>
     </div>
   );
 };
@@ -46,9 +46,9 @@ PostingTitleListItem.propTypes = {
 export const PostingBodyListItem = (props) => {
   const { body } = props;
   return (
-    <div className="p-5 w-inputItemWidth h-postingItemContentHeight border-subColor_grey border-border_md rounded-borderRadius_sm flex flex-col items-start mb-4">
-      <span className="font-bold text-fontSize_lg text-fontColor_black">요청사항</span>
-      <p className="font-semibold text-fontSize_md text-fontColor_black mt-4">{body}</p>
+    <div className="p-5 w-ItemWidth h-postItemBodyHeight border-subColor border-border_md rounded-borderRadius_sm flex flex-col items-start mb-4">
+      <span className="font-bold text-fontSize_lg text-textColor_black">요청사항</span>
+      <p className="font-semibold text-fontSize_md text-textColor_black mt-4">{body}</p>
     </div>
   );
 };
@@ -61,10 +61,10 @@ export const PostingCommentListItem = (props) => {
   return (
     <div
       id="inputItem"
-      className="py-9 px-8 w-inputItemWidth h-inputItemHeight border-subColor_grey border-border_md rounded-borderRadius_sm flex justify-start items-center focus mt-4"
+      className="py-9 px-8 w-ItemWidth h-inputItemHeight border-subColor border-border_md rounded-borderRadius_sm flex justify-start items-center focus mt-4"
     >
-      <span className=" text-fontSize_md text-fontColor_Black font-semibold">{nickname}</span>
-      <span className=" text-fontSize_lg text-subColor_grey font-semibold ml-2"> : </span>
+      <span className=" text-fontSize_md text-textColor_black font-semibold">{nickname}</span>
+      <span className=" text-fontSize_lg text-subColor font-semibold ml-2"> : </span>
       <span className="ml-2 w-auto">{comment}</span>
     </div>
   );

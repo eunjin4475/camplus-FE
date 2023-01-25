@@ -16,10 +16,11 @@ const myListSlice = createSlice({
   reducers: {},
   extraReducers: {
     [getMyListData.pending]: (state) => {
-      return { ...state, list: [] };
+      // eslint-disable-next-line no-param-reassign
+      state.list = [];
     },
     [getMyListData.fulfilled]: (state, action) => {
-      return { ...state, data: action.payload };
+      return { ...state, list: action.payload };
     },
   },
 });

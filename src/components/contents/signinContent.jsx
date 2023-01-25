@@ -23,7 +23,7 @@ const SigninContent = () => {
             });
           }}
           placeHolder="아이디를 입력하세요."
-          className="py-9 px-8 w-inputItemWidth h-inputItemHeight border-subColor_grey border-border_md rounded-borderRadius_lg flex justify-start items-center focus mt-4"
+          className="py-9 px-8 w-ItemWidth h-inputItemHeight border-subColor border-border_md rounded-borderRadius_lg flex justify-start items-center focus mt-4"
         />
         <InputItem
           itemType="비밀번호"
@@ -33,7 +33,7 @@ const SigninContent = () => {
             });
           }}
           placeHolder="비밀번호를 입력하세요."
-          className="py-9 px-8 w-inputItemWidth h-inputItemHeight border-subColor_grey border-border_md rounded-borderRadius_lg flex justify-start items-center focus mt-4"
+          className="py-9 px-8 w-ItemWidth h-inputItemHeight border-subColor border-border_md rounded-borderRadius_lg flex justify-start items-center focus mt-4"
         />
       </form>
       {isLogin === true && (
@@ -46,8 +46,8 @@ const SigninContent = () => {
           form="signin"
           text="로그인"
           type="submit"
-          buttonClassName="w-mainBtnWidth h-mainBtnHeight bg-mainColor_yellow px-48 py-4 rounded-borderRadius_lg mt-4"
-          spanClassName="font-bold text-fontSize_md text-fontColor_white"
+          buttonClassName="w-mainBtnWidth h-mainBtnHeight bg-mainColor px-48 py-4 rounded-borderRadius_lg mt-4"
+          spanClassName="font-bold text-textSize_md text-textColor_white"
           onClick={(e) => {
             e.preventDefault();
             const loginResponse = login(signinData);
@@ -67,8 +67,8 @@ const SigninContent = () => {
           onClick={() => {
             navigate('/signup');
           }}
-          buttonClassName="w-mainBtnWidth h-mainBtnHeight bg-mainColor_yellow px-48 py-4 rounded-borderRadius_lg mt-4"
-          spanClassName="font-bold text-fontSize_md text-fontColor_white"
+          buttonClassName="w-mainBtnWidth h-mainBtnHeight bg-mainColor px-48 py-4 rounded-borderRadius_lg mt-4"
+          spanClassName="font-bold text-textSize_md text-textColor_white"
         />
       </div>
     </div>
