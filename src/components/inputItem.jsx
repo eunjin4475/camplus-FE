@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const InputItem = (props) => {
+export const InputItem = (props) => {
   const { itemType, placeHolder, className, onChange } = props;
   return (
     <div id="inputItem" className={className}>
@@ -43,26 +43,10 @@ const InputItem = (props) => {
           placeholder={placeHolder}
         />
       )}
-      {itemType === '대학교 선택' && (
-        <input
-          className="focus:outline-none ml-2 w-auto"
-          required
-          type="text"
-          onChange={onChange}
-        />
-      )}
       {itemType === '이메일 입력' && (
         <input className="focus:outline-none ml-2 w-150" required type="text" onChange={onChange} />
       )}
       {itemType === '제목' && (
-        <input
-          className="focus:outline-none ml-2 w-auto"
-          required
-          type="text"
-          onChange={onChange}
-        />
-      )}
-      {itemType === '카테고리' && (
         <input
           className="focus:outline-none ml-2 w-auto"
           required
@@ -99,4 +83,16 @@ InputItem.propTypes = {
   onChange: PropTypes.func.isRequired,
 };
 
-export default InputItem;
+export const PostBodyInputItem = (props) => {
+  const { className, onChange } = props;
+  return (
+    <div className={className}>
+      <span className=" text-fontSize_md text-textColor_black font-semibold">요청</span>
+      <input className="focus:outline-none w-full mt-4" required type="text" onChange={onChange} />
+    </div>
+  );
+};
+PostBodyInputItem.propTypes = {
+  className: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
