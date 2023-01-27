@@ -14,7 +14,7 @@ const Header = () => {
           logout();
           window.location.reload();
         }}
-        buttonClassName=" w-categoryBtnWidth h-4 bg-mainColor_yellow rounded-borderRadius_sm"
+        buttonClassName=" w-categoryBtnWidth h-3 bg-mainColor rounded-borderRadius_sm"
         spanClassName="font-bold text-fontSize_sm text-fontColor_white"
       />
     </>

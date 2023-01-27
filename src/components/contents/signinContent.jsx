@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { login } from '../../services/auth.service';
 import { MainBtn } from '../button';
-import InputItem from '../inputItem';
+import { InputItem } from '../inputItem';
 
 const SigninContent = () => {
   const [signinData, setSigninData] = useState({

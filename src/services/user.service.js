@@ -57,13 +57,7 @@ export const postComment = (props) => {
   return response;
 };
 
-export const deleteList = (props) => {
-  const { id } = props;
-  axios.delete(
-    `${API_BASE_URL}${posts}`,
-    {
-      id,
-    },
-    { headers: authHeader() }
-  );
+export const deleteList = (id) => {
+  const response = axios.delete(`${API_BASE_URL}${posts}${id}`, { headers: authHeader() });
+  return response;
 };

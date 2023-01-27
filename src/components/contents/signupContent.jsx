@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { signup } from '../../services/auth.service';
 import { MainBtn } from '../button';
 import { UnivBtn } from '../buttonList';
-import InputItem from '../inputItem';
+import { InputItem } from '../inputItem';
 
 const SignupContent = () => {
   const navigate = useNavigate();
@@ -60,7 +60,7 @@ const SignupContent = () => {
           placeHolder="동일하게 입력"
           className="py-9 px-8 w-ItemWidth h-inputItemHeight border-subColor border-border_md rounded-borderRadius_lg flex justify-start items-center focus mt-4"
         />
-        <div className="px-8 w-ItemWidth h-inputItemHeight border-subColor border-border_md rounded-borderRadius_lg flex justify-start items-center focus mt-4">
+        <div className="px-8 w-ItemWidth h-inputItemHeight border-subColor border-border_md rounded-borderRadius_lg flex justify-start items-center focus my-4">
           <UnivBtn
             onClick={(event) => {
               setSignupData((prevState) => {
@@ -70,7 +70,7 @@ const SignupContent = () => {
           />
         </div>
         {signupData.university !== '' ? (
-          <div className="flex flex-row justify-center">
+          <div className="flex flex-row justify-center items-center relative">
             <InputItem
               itemType="이메일 입력"
               onChange={(event) => {
@@ -81,9 +81,9 @@ const SignupContent = () => {
                   };
                 });
               }}
-              className="py-9 px-8 w-ItemWidth h-inputItemHeight border-subColor border-border_md rounded-borderRadius_lg flex justify-start items-center focus mt-4"
+              className=" py-9 px-8 w-ItemWidth h-inputItemHeight border-subColor border-border_md rounded-borderRadius_lg flex justify-start items-center focus"
             />
-            <span>{`@${signupData.university}.ac.kr`}</span>
+            <span className=" absolute w-auto left-1/3 justify-center items-center">{`@${signupData.university}.ac.kr`}</span>
           </div>
         ) : null}
       </form>

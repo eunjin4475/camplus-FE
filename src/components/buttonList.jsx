@@ -56,6 +56,23 @@ export const CategoryBtnList = () => {
   );
 };
 
+export const CategoryBtnList2 = (props) => {
+  const { onClick } = props;
+  return (
+    <div className="flex h-categoryBtnListHeight items-center">
+      <CategoryBtn id="book" text="책" onClick={onClick} />
+      <CategoryBtn id="charger" text="충전기" onClick={onClick} />
+      <CategoryBtn id="calculator" text="계산기" onClick={onClick} />
+      <CategoryBtn id="student product" text="학생용품" onClick={onClick} />
+      <CategoryBtn id="lost item" text="분실물" onClick={onClick} />
+      <CategoryBtn id="etx" text="그 외" onClick={onClick} />
+    </div>
+  );
+};
+CategoryBtnList2.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
+
 export const UnivBtn = (props) => {
   const { onClick } = props;
   return (
