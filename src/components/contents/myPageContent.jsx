@@ -13,7 +13,7 @@ const MyPageContent = () => {
   });
   console.log(myListData);
   return (
-    <div>
+    <div className="h-homeContentHeight overflow-aut">
       {myListData &&
         myListData.map((data) => {
           return (
