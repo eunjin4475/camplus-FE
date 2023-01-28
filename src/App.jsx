@@ -22,7 +22,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <Routes>
+      <Routes forceRefresh>
         <Route exact path="/" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/home" element={<Home token={userData} />}>

@@ -13,7 +13,6 @@ const PostContent = () => {
     location: '',
     body: '',
   });
-  console.log(postData);
   return (
     <div className="flex flex-col justify-center items-center">
       <form id="post">

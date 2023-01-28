@@ -15,7 +15,6 @@ const SignupContent = () => {
     university: '',
     email: '',
   });
-  console.log(signupData);
 
   return (
     <div className="flex flex-col justify-evenly items-center">
