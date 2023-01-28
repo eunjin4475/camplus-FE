@@ -16,7 +16,7 @@ export const login = (prop) => {
 };
 
 export const logout = () => {
-  localStorage.removeItem('user');
+  localStorage.removeItem('userData');
 };
 
 export const signup = (props) => {

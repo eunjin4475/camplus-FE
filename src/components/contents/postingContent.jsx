@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getData } from '../../redux/listDataSlice';
 import { PostingBodyListItem, PostingCommentListItem, PostingTitleListItem } from '../listItem';
@@ -10,6 +10,7 @@ import { postComment, deleteList } from '../../services/user.service';
 const PostingContent = () => {
   const url = useParams();
   const navigate = useNavigate();
+  const location = useLocation;
   const dispatch = useDispatch();
   const userData = JSON.parse(localStorage.getItem('userData'));
   const [commentData, setCommentData] = useState({
@@ -22,7 +23,7 @@ const PostingContent = () => {
 
   useEffect(() => {
     dispatch(getData(url.id));
-  }, [postComment]);
+  }, []);
 
   return (
     <div className="flex flex-col justify-center items-center overflow-auto">
@@ -70,9 +71,9 @@ const PostingContent = () => {
         <MainBtn
           text="보내기"
           type="submit"
-          onClick={(event) => {
-            event.preventDefault();
+          onClick={() => {
             postComment(commentData);
+            location();
           }}
           buttonClassName=" w-categoryBtnWidth h-postItemHeight bg-mainColor rounded-borderRadius_sm"
           spanClassName="font-bold text-fontSize_md text-textColor_white"
