@@ -100,7 +100,6 @@ const SignupContent = () => {
               navigate('/');
             })
             .catch((error) => {
-              console.log(error);
               if (error.response.data.username) {
                 alert('아이디 부분에 문제가 있어요! 다시 확인해주세요!');
               }
