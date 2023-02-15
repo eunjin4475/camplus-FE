@@ -47,3 +47,24 @@
 
 
 <br />
+## 📁 프로젝트 실행 방법
+
+### Front-End
+
+프로젝트 클론
+
+```shell
+$ git clone https://github.com/devRent-Camplus/camplus-FE.git
+```
+
+패키지 설치
+
+```shell
+$ npm install or npm install
+```
+
+서버 실행
+
+```shell
+$ npm run start or yarn run start
+```
